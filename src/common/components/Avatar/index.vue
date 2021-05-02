@@ -1,5 +1,5 @@
 <template>
-  <span :class="[className, `w-${size}`, `h-${size}`]" class="avatar">
+  <span :class="className" class="avatar">
     <img v-if="src" :src="src" />
     <svg
       v-else
@@ -21,12 +21,8 @@ export default defineComponent({
   name: "Avatar",
   props: {
     className: String,
-    src: String,
-    size: {
-      type: String,
-      default: "10",
-    },
-  },
+    src: String
+  }
 });
 </script>
 <style src="./style.css" scoped></style>
