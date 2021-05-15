@@ -1,4 +1,4 @@
-# age-coin-fe
+# agecoin-fe
 
 ## Project setup
 
