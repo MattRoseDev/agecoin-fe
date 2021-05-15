@@ -1,3 +1,5 @@
+@import url("font.css");
+
 @tailwind base;
 
 @tailwind components;
@@ -6,6 +8,6 @@
 
 @layer base {
   body {
-    background-color: #f9fafb;
+    background-color: #f3f4f6;
   }
 }
