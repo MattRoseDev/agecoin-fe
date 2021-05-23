@@ -1,0 +1,3 @@
+.avatar {
+  @apply inline-block rounded-full overflow-hidden bg-white shadow-sm border;
+}
