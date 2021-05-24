@@ -1,7 +1,8 @@
+import { Nullable } from ".";
 import type { User } from "./user";
 
 export type Account = {
-  user?: User;
-  token?: string;
+  user?: Nullable<User>;
+  token?: Nullable<string>;
   loggedIn: boolean;
 };
