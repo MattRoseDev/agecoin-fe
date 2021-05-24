@@ -1,30 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="flex flex-row h-screen max-w-7xl mx-auto lg:px-5 relative">
+    <Sidebar v-if="store.state.account.loggedIn" />
+    <router-view />
   </div>
-  <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { defineComponent } from "vue";
+import Sidebar from "@/modules/sidebar/index";
+import { useStore } from "@/store";
+import { initApp } from "@/utils/init";
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+  components: {
+    Sidebar
+  },
+  setup() {
+    initApp();
+    const store = useStore();
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+    return { store };
   }
-}
-</style>
+});
+</script>
+
+<style lang="scss"></style>

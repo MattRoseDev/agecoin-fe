@@ -8,6 +8,15 @@ const routes: Array<RouteRecordRaw> = [
     name: "Login",
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/Login/index.vue")
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    meta: {
+      private: true
+    },
+    component: () =>
+      import(/* webpackChunkName: "logout" */ "../views/Logout/index.vue")
   }
 ];
 
