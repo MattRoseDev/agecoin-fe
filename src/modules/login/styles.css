@@ -1,0 +1,4 @@
+form {
+  @apply flex flex-col w-80 m-auto justify-center bg-white;
+  @apply p-5 rounded-lg shadow-sm border border-gray-100;
+}
