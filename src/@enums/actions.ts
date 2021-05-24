@@ -1,3 +1,4 @@
 export enum ActionType {
-  Login = "LOGIN"
+  Login = "LOGIN",
+  Logout = "LOGOUT"
 }

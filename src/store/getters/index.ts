@@ -1,10 +1,12 @@
-import { GetterTree } from "vuex";
-import { State } from "../state";
-import { User } from "@/@types/user";
+import type { GetterTree } from "vuex";
+import type { State } from "../state";
+import type { User } from "@/@types/user";
+import { Nullable } from "@/@types";
+import { Account } from "@/@types/account";
 
 export type Getters = {
-  getUserInfo(state: State): User | undefined;
-  getToken(state: State): string | undefined;
+  getUserInfo(state: State): Account['user'];
+  getToken(state: State): Account['token'];
 };
 
 export const getters: GetterTree<State, State> & Getters = {
