@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row h-screen max-w-7xl mx-auto lg:px-5 relative">
-    <Sidebar v-if="store.state.account.loggedIn" />
+    <Sidebar v-if="store.state.account.isAuthenticated" />
     <router-view />
   </div>
 </template>
