@@ -1,15 +1,13 @@
 import { MutationType } from '@/@enums/mutations'
 import type { State } from '../state'
 import type { User } from '@/@types/user'
-import { Account } from '@/@types/account';
-
 
 export type AccountType = {
   [MutationType.SetUser](state: State, user: User): void;
   [MutationType.ClearUser](state: State): void;
   [MutationType.SetToken](state: State, token: string): void;
   [MutationType.ClearToken](state: State): void;
-  [MutationType.SetLoggedIn](state: State, loggedIn: boolean): void;
+  [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean): void;
 }
 
 export default  {
@@ -39,7 +37,7 @@ export default  {
       token: null
     }
    },
-  [MutationType.SetLoggedIn](state: State, loggedIn: boolean) {
-    state.account.loggedIn = loggedIn
+  [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean) {
+    state.account.isAuthenticated = isAuthenticated
    },
 };
