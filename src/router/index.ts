@@ -17,6 +17,15 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () =>
       import(/* webpackChunkName: "logout" */ "../views/Logout/index.vue")
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    meta: {
+      private: true
+    },
+    component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/Profile/index.vue")
   }
 ];
 
