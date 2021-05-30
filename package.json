@@ -21,9 +21,11 @@
     "moment": "^2.29.1",
     "register-service-worker": "^1.7.1",
     "subscriptions-transport-ws": "^0.9.18",
+    "vee-validate": "^4.4.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.3.2",
