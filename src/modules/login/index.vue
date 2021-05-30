@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="login">
+  <Form @submit="login" :validation-schema="schema">
     <div v-if="errorMessage.length > 0" class="rounded-md bg-red-50 p-2.5 mb-3">
       <div class="flex">
         <div class="flex-shrink-0">
@@ -25,13 +25,19 @@
       </div>
     </div>
     <div class="mb-4">
-      <Input label="Username" type="text" v-model:value="formData.username" />
+      <Input
+        label="Username"
+        name="username"
+        type="text"
+        successMessage="Great!"
+      />
     </div>
     <div class="mb-4">
       <Input
         label="Password"
+        name="password"
         type="password"
-        v-model:value="formData.password"
+        successMessage="Excellent!"
       />
     </div>
     <Button
@@ -47,11 +53,12 @@
         >Register Now</Link
       >
     </div>
-  </form>
+  </Form>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { Form } from "vee-validate";
 import Input from "@/components/Input/index.vue";
 import Link from "@/components/Link/index.vue";
 import Button from "@/components/Button/index.vue";
@@ -60,11 +67,12 @@ import useLogin from "./useLogin";
 export default defineComponent({
   name: "LoginModule",
   setup() {
-    const { formData, login, loading, errorMessage } = useLogin();
+    const { schema, login, loading, errorMessage } = useLogin();
 
-    return { formData, login, loading, errorMessage };
+    return { schema, login, loading, errorMessage };
   },
   components: {
+    Form,
     Input,
     Link,
     Button
