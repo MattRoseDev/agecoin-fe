@@ -1,24 +1,53 @@
 <template>
   <div :class="className">
-    <label v-if="!!label" :for="id">{{ label }}</label>
+    <label v-if="!!label" :for="name">{{ label }}</label>
     <div class="mt-1">
       <input
+        :name="name"
+        :id="name"
         :type="type"
-        :id="id"
-        :value="value"
-        @input="$emit('update:value', $event.target.value)"
+        :value="inputValue"
+        @input="handleChange"
+        @blur="handleBlur"
         :placeholder="placeholder"
       />
+      <small
+        :class="{
+          'error-message': !!errorMessage,
+          'success-message': meta.valid
+        }"
+        v-show="errorMessage || meta.valid"
+      >
+        {{ errorMessage || successMessage }}
+      </small>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { useField } from "vee-validate";
 import { defineComponent } from "vue";
 import type { InputType } from './@types'
 
 export default defineComponent({
   name: "Input",
+  setup(props) {
+    const {
+      value: inputValue,
+      errorMessage,
+      handleBlur,
+      handleChange,
+      meta,
+    } = useField(props.name, undefined);
+
+    return {
+      handleChange,
+      handleBlur,
+      errorMessage,
+      inputValue,
+      meta,
+    };
+  },
   props: {
     type: {
       type: String as () => InputType,
@@ -28,17 +57,17 @@ export default defineComponent({
       type: String,
       required: false
     },
-    id: {
+    name: {
+      type: String,
+      required: true
+    },
+    successMessage: {
       type: String,
       required: false
     },
     label: {
       type: String,
       required: false
-    },
-    value: {
-      type: String,
-      required: true
     },
     className: {
       type: String,

@@ -4,3 +4,10 @@ label {
 input {
   @apply shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md;
 }
+
+.error-message {
+  @apply text-gray-500;
+}
+.success-message {
+  @apply text-blue-500;
+}
