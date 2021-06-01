@@ -7,7 +7,7 @@ button.sm {
   outline: none !important;
 }
 button {
-  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm outline-none;
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm outline-none select-none;
   outline: none !important;
 }
 button.lg {
