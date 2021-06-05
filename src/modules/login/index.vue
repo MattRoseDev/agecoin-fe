@@ -62,7 +62,7 @@ import { Form } from "vee-validate";
 import Input from "@/components/Input/index.vue";
 import Link from "@/components/Link/index.vue";
 import Button from "@/components/Button/index.vue";
-import useLogin from "./useLogin";
+import useLogin from "./hooks/useLogin";
 
 export default defineComponent({
   name: "LoginModule",

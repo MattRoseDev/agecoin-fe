@@ -3,5 +3,6 @@ export enum MutationType {
   ClearUser = "CLEAR_USER",
   SetToken = "SET_TOKEN",
   ClearToken = "CLEAR_TOKEN",
-  SetIsAuthenticated = "SET_LOGGED_IN"
+  SetIsAuthenticated = "SET_IS_AUTHENTICATED",
+  SetTasks = "SET_TASKS"
 }
