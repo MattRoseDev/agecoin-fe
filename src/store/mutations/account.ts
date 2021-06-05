@@ -1,6 +1,7 @@
 import { MutationType } from '@/@enums/mutations'
 import type { State } from '../state'
 import type { User } from '@/@types/user'
+import { Task } from '@/@types/task';
 
 export type AccountType = {
   [MutationType.SetUser](state: State, user: User): void;
@@ -8,6 +9,7 @@ export type AccountType = {
   [MutationType.SetToken](state: State, token: string): void;
   [MutationType.ClearToken](state: State): void;
   [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean): void;
+  [MutationType.SetTasks](state: State, Tasks: Task[]): void;
 }
 
 export default  {
@@ -39,5 +41,13 @@ export default  {
    },
   [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean) {
     state.account.isAuthenticated = isAuthenticated
+   },
+  [MutationType.SetTasks](state: State, tasks: Task[]) {
+    if(state.account.user) {
+      state.account.user = {
+        ...state.account?.user, 
+        tasks
+      }
+    }
    },
 };
