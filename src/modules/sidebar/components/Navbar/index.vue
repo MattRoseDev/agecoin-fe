@@ -7,11 +7,11 @@
         class="flex justify-center items-center w-full"
         to="/profile"
       >
-        <Avatar className="w-6 h-6" />
+        <Avatar className="w-7 h-7" />
       </router-link>
       <router-link
         v-for="item in navigation"
-        class="py-2 w-full flex justify-center"
+        class="py-2.5 w-full flex justify-center"
         :key="item.name"
         :to="item.to"
         v-slot="{ isActive }"

@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div class="hidden lg:flex items-start py-5 h-full">
-      <div class="flex flex-col w-72 shadow bg-white rounded-lg top-0 sticky">
+    <div class="hidden lg:flex lg:flex-col items-start py-5 h-full">
+      <div
+        class="flex flex-col w-72 shadow bg-white rounded-lg top-0 sticky mb-3"
+      >
         <div
           class="flex items-center px-5 py-4 font-bold border-b boder-gray-900"
         >
-          Time Wallet
+          Logo
         </div>
 
         <div class="h-0 flex-1 flex flex-col overflow-y-auto pt-5 pb-2">
