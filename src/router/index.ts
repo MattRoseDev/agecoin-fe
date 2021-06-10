@@ -4,6 +4,15 @@ import { PUBLIC_ROUTES } from "@/config";
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: "/",
+    name: "Home",
+    meta: {
+      private: false
+    },
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Home/index.vue")
+  },
+  {
     path: "/login",
     name: "Login",
     component: () =>
