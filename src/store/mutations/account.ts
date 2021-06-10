@@ -3,7 +3,7 @@ import type { State } from '../state'
 import type { User } from '@/@types/user'
 import { Task } from '@/@types/task';
 
-export type AccountType = {
+export type AccountMutationsType = {
   [MutationType.SetUser](state: State, user: User): void;
   [MutationType.ClearUser](state: State): void;
   [MutationType.SetToken](state: State, token: string): void;
@@ -14,7 +14,7 @@ export type AccountType = {
   [MutationType.ToggleTheme](state: State): void;
 }
 
-export default  {
+export const accountMutations = {
   [MutationType.SetUser](state: State, user: User) {
     state.account = {
       ...state.account,

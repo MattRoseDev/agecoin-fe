@@ -4,17 +4,21 @@ import { useStore } from "@/store";
 import { MutationType } from "@/@enums/mutations";
 
 export default () => {
-  const { onResult, loading } = useQuery(GET_TASKS);
+  const store = useStore();
 
-  onResult(result => {
-    if (result.data) {
-      const {
-        data: { getTasks }
-      } = result;
-      const store = useStore();
-      store.commit(MutationType.SetTasks, getTasks);
-    }
-  });
+  if (!store.getters.getTasks.length) {
+    const { onResult, loading } = useQuery(GET_TASKS);
 
-  return { loading };
+    onResult(result => {
+      if (result.data) {
+        const {
+          data: { getTasks }
+        } = result;
+        store.commit(MutationType.SetTasks, getTasks);
+      }
+    });
+    return { loading };
+  } else {
+    return { loading: false };
+  }
 };

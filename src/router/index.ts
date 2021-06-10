@@ -37,6 +37,15 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "tasks" */ "../views/Tasks/index.vue")
   },
   {
+    path: "/tasks/:taskId",
+    name: "Task",
+    meta: {
+      private: true
+    },
+    component: () =>
+      import(/* webpackChunkName: "tasks" */ "../views/Task/index.vue")
+  },
+  {
     path: "/profile",
     name: "Profile",
     meta: {
