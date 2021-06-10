@@ -5,11 +5,11 @@ import {
   createHttpLink,
   InMemoryCache
 } from "@apollo/client/core";
-import { API_URL } from "@/config";
+import { VUE_APP_BASE_URL } from "@/config";
 
 // Create an http link:
 const httpLink = createHttpLink({
-  uri: API_URL
+  uri: `${VUE_APP_BASE_URL}/query`
 });
 
 const authLink = new ApolloLink((operation, forward) => {
