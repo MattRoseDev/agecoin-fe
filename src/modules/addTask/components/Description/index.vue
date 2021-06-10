@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="mt-4">
     <small
       @click="toggleShowDescription"
       class="cursor-pointer inline-flex items-center mb-2 select-none"
@@ -22,10 +22,10 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { PlusIcon, MinusSmIcon } from "@heroicons/vue/outline";
-import { useField, useResetForm } from "vee-validate";
+import { useField } from "vee-validate";
 
 export default defineComponent({
-  name: "DescriptionModule",
+  name: "DescriptionComponent",
   setup() {
     const { value, handleReset } = useField("description");
     const showDescription = ref(false);

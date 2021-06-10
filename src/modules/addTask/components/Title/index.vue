@@ -4,7 +4,7 @@
     name="title"
     class="title"
     placeholder="Title"
-    v-model="value"
+    v-model="title"
     autocomplete="off"
   />
 </template>
@@ -14,10 +14,11 @@ import { defineComponent } from "vue";
 import { useField } from "vee-validate";
 
 export default defineComponent({
-  name: "TitleModule",
+  name: "TitleComponent",
   setup() {
-    const { value } = useField("title");
-    return { value };
+    const { value: title } = useField<string>("title");
+
+    return { title };
   }
 });
 </script>
