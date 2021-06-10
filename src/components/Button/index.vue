@@ -1,5 +1,9 @@
 <template>
-  <button :type="type" :class="className">
+  <button
+    :type="type"
+    :class="[className, disabled ? 'disabled' : '']"
+    :disabled="disabled"
+  >
     <div v-if="loading">
       <svg
         class="animate-spin h-5 w-5 text-white"
@@ -36,6 +40,7 @@ export default defineComponent({
     type: String as () => ButtonType,
     className: String,
     loading: Boolean,
+    disabled: Boolean,
   },
 });
 </script>
