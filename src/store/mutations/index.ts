@@ -1,9 +1,9 @@
 import { MutationTree } from "vuex";
 import { State } from "../state";
-import account, { AccountType } from "./account";
+import { accountMutations, AccountMutationsType } from "./account";
 
-export type Mutations = AccountType;
+export type Mutations = AccountMutationsType;
 
 export const mutations: MutationTree<State> & Mutations = {
-  ...account
+  ...accountMutations
 };

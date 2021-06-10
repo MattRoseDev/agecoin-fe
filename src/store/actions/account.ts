@@ -5,12 +5,12 @@ import type { ActionTree } from "vuex";
 import type { ActionAugments, Actions } from ".";
 import type { State } from "../state";
 
-export type AccountType = {
+export type AccountActionsType = {
   [ActionType.Login](context: ActionAugments, account: Omit<Account, 'isAuthenticated'>): void;
   [ActionType.Logout](context: ActionAugments): void;
 };
 
-const account: ActionTree<State, State> & Actions = {
+export const accountActions: ActionTree<State, State> & Actions = {
   async [ActionType.Login]({ commit }, { token, user }: Omit<Account, 'isAuthenticated'>) {
     if(token && user) {
       commit(MutationType.SetToken, token)
@@ -24,5 +24,3 @@ const account: ActionTree<State, State> & Actions = {
     commit(MutationType.ClearToken, undefined)
   }
 }
-
-export default account

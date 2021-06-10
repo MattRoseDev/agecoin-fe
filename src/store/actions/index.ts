@@ -1,7 +1,7 @@
-import { ActionContext, ActionTree } from "vuex";
+import { ActionContext } from "vuex";
 import { Mutations } from "../mutations";
 import { State } from "../state";
-import account, { AccountType } from "./account";
+import { accountActions, AccountActionsType } from "./account";
 
 export type ActionAugments = Omit<ActionContext<State, State>, "commit"> & {
   commit<K extends keyof Mutations>(
@@ -10,8 +10,8 @@ export type ActionAugments = Omit<ActionContext<State, State>, "commit"> & {
   ): ReturnType<Mutations[K]>;
 };
 
-export type Actions = AccountType;
+export type Actions = AccountActionsType;
 
 export const actions = {
-  ...account
+  ...accountActions
 };
