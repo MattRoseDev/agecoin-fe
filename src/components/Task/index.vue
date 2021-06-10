@@ -1,24 +1,22 @@
 <template>
   <div class="bg-white mt-2 lg:mt-5 shadow rounded-lg w-full">
-    <div class="text-3xl px-4 pt-3 mb-0 font-bold" v-if="title">
+    <div class="text-3xl px-4 pt-4 mb-0 font-bold" v-if="title">
       {{ title }}
     </div>
     <div class="relative px-4">
-      <div class="">
-        <div v-if="defaultCoins" class="pb-2">
-          <small class="text-xs inline-block text-gray-500">
-            {{ defaultCoins }} coins
-          </small>
-        </div>
+      <div v-if="defaultCoins" class="pb-2">
+        <small class="text-xs inline-block text-gray-500">
+          {{ defaultCoins }} coins
+        </small>
       </div>
     </div>
     <div v-if="active" class="w-full border-t flex">
       <button class="card-button border-r">
-        <!-- Pause -->
+        Pause
         <PauseIcon class="w-6 h-6 ml-1" />
       </button>
-      <button class="card-button text-blue-600">
-        <!-- Done -->
+      <button class="card-button text-blue-500">
+        Done
         <CheckCircleIcon class="w-6 h-6 ml-1" />
       </button>
     </div>
