@@ -9,7 +9,9 @@ export type AccountType = {
   [MutationType.SetToken](state: State, token: string): void;
   [MutationType.ClearToken](state: State): void;
   [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean): void;
-  [MutationType.SetTasks](state: State, Tasks: Task[]): void;
+  [MutationType.SetTasks](state: State, task: Task[]): void;
+  [MutationType.AppendNewTask](state: State, task: Task): void;
+  [MutationType.ToggleTheme](state: State): void;
 }
 
 export default  {
@@ -43,10 +45,31 @@ export default  {
     state.account.isAuthenticated = isAuthenticated
    },
   [MutationType.SetTasks](state: State, tasks: Task[]) {
-    if(state.account.user) {
+    if(state.account?.user) {
       state.account.user = {
         ...state.account?.user, 
         tasks
+      }
+    }
+   },
+  [MutationType.AppendNewTask](state: State, task: Task) {
+    if(state.account?.user?.tasks) {
+      state.account.user = {
+        ...state.account?.user, 
+        tasks: [task, ...state.account?.user?.tasks]
+      }
+    }
+   },
+  [MutationType.ToggleTheme](state: State) {
+    if(state.account?.user) {
+      state.account.user = { 
+        ...state.account?.user, 
+        theme: state.account?.user?.theme === 'light' ? 'dark' : 'light' 
+      }
+      if(state.account?.user?.theme === 'light') {
+        document.querySelector("html")?.classList.add("dark");
+      } else {
+        document.querySelector("html")?.classList.remove("dark");
       }
     }
    },
