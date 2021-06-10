@@ -8,7 +8,7 @@ export type AccountGettersType = {
   getUserInfo(state: State): Account['user'];
   getToken(state: State): Account['token'];
   getTasks(state: State): Task[];
-  getTaskById(state: State, taskId: string): Task | undefined;
+  getTaskById(state: State): (taskId: string) => Task | undefined;
 };
 
 export const accountGetters: GetterTree<State, State> & Getters = {
@@ -21,7 +21,8 @@ export const accountGetters: GetterTree<State, State> & Getters = {
   getTasks(state) {
     return state.account?.user?.tasks || [];
   },
-  getTaskById(state, taskId) {
-    return state.account.user?.tasks?.find(task => task.id == taskId)
+  getTaskById(state) {
+    return (taskId: string) => 
+      state.account.user?.tasks?.find(task => task.id == taskId) || undefined
   }
 };
