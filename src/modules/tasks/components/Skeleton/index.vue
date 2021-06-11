@@ -1,6 +1,11 @@
 <template>
   <div class="w-full flex flex-col items-center animate-pulse">
-    <TaskSkeleton v-for="item in items" :key="item" class="mt-5" />
+    <TaskSkeleton
+      v-for="item in items"
+      :key="item"
+      v-bind="item"
+      class="mt-5"
+    />
   </div>
 </template>
 
@@ -14,7 +19,20 @@ export default defineComponent({
     TaskSkeleton
   },
   setup() {
-    const items = new Array(4);
+    const items = [
+      {
+        titleWidth: 52
+      },
+      {
+        titleWidth: 40
+      },
+      {
+        titleWidth: 64
+      },
+      {
+        titleWidth: 32
+      }
+    ];
     return { items };
   }
 });
