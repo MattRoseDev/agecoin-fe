@@ -14,6 +14,7 @@
       type="text"
       class="description"
       placeholder="Description"
+      rows="5"
       v-model="value"
     />
   </div>

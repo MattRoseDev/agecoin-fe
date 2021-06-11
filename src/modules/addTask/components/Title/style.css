@@ -1,5 +1,5 @@
 .title {
-  @apply w-full font-bold text-2xl p-0 border-0;
+  @apply w-full font-bold text-3xl p-0 border-0;
 }
 
 .title:placeholder-shown {
