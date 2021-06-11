@@ -1,8 +1,10 @@
 <template>
-  <div class="w-full rounded-lg bg-gray-100 p-4 flex flex-col items-start">
-    <span class="h-10 w-64 bg-gray-200 inline-block rounded-md"></span>
-    <span class="h-3 w-40 bg-gray-200 inline-block rounded-md mt-4"></span>
-    <span class="h-4 w-14 bg-gray-200 inline-block rounded-md mt-4"></span>
+  <div class="w-full rounded-lg bg-gray-200 p-4 flex flex-col items-start">
+    <span
+      class="h-10 bg-gray-300 inline-block rounded-md"
+      :class="`w-${titleWidth}`"
+    ></span>
+    <span class="h-4 w-16 bg-gray-300 inline-block rounded-md mt-4"></span>
   </div>
 </template>
 
@@ -10,6 +12,9 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "TaskSkeleton"
+  name: "TaskSkeleton",
+  props: {
+    titleWidth: Number
+  }
 });
 </script>
