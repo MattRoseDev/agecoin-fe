@@ -11,6 +11,7 @@ export type AccountMutationsType = {
   [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean): void;
   [MutationType.SetTasks](state: State, task: Task[]): void;
   [MutationType.AppendNewTask](state: State, task: Task): void;
+  [MutationType.EditTask](state: State, task: Task): void;
   [MutationType.ToggleTheme](state: State): void;
 }
 
@@ -57,6 +58,20 @@ export const accountMutations = {
       state.account.user = {
         ...state.account?.user, 
         tasks: [task, ...state.account?.user?.tasks]
+      }
+    }
+   },
+  [MutationType.EditTask](state: State, task: Task) {
+    if(state.account?.user?.tasks) {
+      const tasks = state.account.user.tasks.map(t => {
+        if(t.id == task.id) {
+          return task
+        }
+        return t 
+      })
+      state.account.user = {
+        ...state.account?.user, 
+        tasks
       }
     }
    },
