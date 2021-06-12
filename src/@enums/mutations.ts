@@ -6,5 +6,6 @@ export enum MutationType {
   SetIsAuthenticated = "SET_IS_AUTHENTICATED",
   SetTasks = "SET_TASKS",
   AppendNewTask = "APPEND_NEW_TASK",
+  EditTask = "EDIT_TASK",
   ToggleTheme = "TOGGLE_THEME"
 }
