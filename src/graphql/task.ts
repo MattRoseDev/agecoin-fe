@@ -17,6 +17,29 @@ export const ADD_TASK = gql`
   }
 `;
 
+export const EDIT_TASK = gql`
+  mutation editTask(
+    $taskId: ID!
+    $title: String
+    $defaultCoins: Int
+    $description: String
+  ) {
+    editTask(
+      taskId: $taskId
+      input: {
+        title: $title
+        defaultCoins: $defaultCoins
+        description: $description
+      }
+    ) {
+      id
+      title
+      description
+      defaultCoins
+    }
+  }
+`;
+
 export const GET_TASKS = gql`
   query getTasks {
     getTasks {
