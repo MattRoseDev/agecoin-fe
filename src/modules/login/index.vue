@@ -42,14 +42,14 @@
     </div>
     <Button
       type="submit"
-      className="text-white bg-blue-500 hover:bg-blue-600 my-3"
+      class="text-white bg-blue-500 hover:bg-blue-600 my-3"
       :loading="loading"
       >Login</Button
     >
     <div class="flex justify-center">
       <Link
         to="/register"
-        className="inline-flex mb-1 py-1 px-2 font-medium text-blue-500 hover:bg-blue-100"
+        class="inline-flex mb-1 py-1 px-2 font-medium text-blue-500 hover:bg-blue-100"
         >Register Now</Link
       >
     </div>

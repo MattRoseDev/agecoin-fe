@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen w-full items-center justify-center">
-    <Button className="bg-blue-500 text-white rounded-lg"
+    <Button class="bg-blue-500 text-white rounded-lg"
       ><router-link to="/login">Login</router-link></Button
     >
   </div>
