@@ -6,7 +6,7 @@ import { MutationType } from "@/@enums/mutations";
 export default () => {
   const store = useStore();
 
-  if (store.getters.getTasks.length) {
+  if (store.getters.getTasks.length > 1) {
     return { loading: false };
   } else {
     const { onResult, loading } = useQuery(GET_TASKS);
