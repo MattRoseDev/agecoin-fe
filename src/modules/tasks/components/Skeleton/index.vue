@@ -4,7 +4,7 @@
       v-for="item in items"
       :key="item"
       v-bind="item"
-      class="mt-5"
+      class="mb-2 lg:mb-5"
     />
   </div>
 </template>
