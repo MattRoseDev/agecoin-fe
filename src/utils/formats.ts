@@ -20,5 +20,7 @@ export const coinFormat: CoinFormat = value => {
 };
 
 export const dateFormat: DateFormat = date => {
+  if (!date.length) return "";
+
   return moment(date).format("MMM DD YYYY");
 };
