@@ -1,8 +1,7 @@
-import { Nullable } from ".";
 
 export type Task = {
   id: string;
   title: string;
-  description?: Nullable<string>;
+  description?: string;
   defaultCoins: number;
 };
