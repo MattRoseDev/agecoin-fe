@@ -15,7 +15,7 @@ export type AccountMutationsType = {
   [MutationType.ToggleTheme](state: State): void;
 }
 
-export const accountMutations = {
+export const accountMutations: AccountMutationsType = {
   [MutationType.SetUser](state: State, user: User) {
     state.account = {
       ...state.account,
@@ -25,7 +25,7 @@ export const accountMutations = {
   [MutationType.ClearUser](state: State) {
     state.account = {
       ...state.account,
-      user: null
+      user: undefined 
     }
    },
   [MutationType.SetToken](state: State, token: string) {
@@ -39,7 +39,7 @@ export const accountMutations = {
     localStorage.removeItem('Authorization')
     state.account = {
       ...state.account,
-      token: null
+      token: undefined
     }
    },
   [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean) {
@@ -54,12 +54,21 @@ export const accountMutations = {
     }
    },
   [MutationType.AppendNewTask](state: State, task: Task) {
-    if(state.account?.user?.tasks) {
-      state.account.user = {
-        ...state.account?.user, 
-        tasks: [task, ...state.account?.user?.tasks]
+    if(state.account?.user) {
+      if(state.account?.user?.tasks?.length) {
+        if(!state.account.user.tasks.find(t => t.id == task.id)) {
+          state.account.user = {
+            ...state.account?.user, 
+            tasks: [task, ...state.account?.user?.tasks]
+          }
+        }
+      } else {
+        state.account.user = {
+          ...state.account?.user, 
+          tasks: [task]
+        }
       }
-    }
+    } 
    },
   [MutationType.EditTask](state: State, task: Task) {
     if(state.account?.user?.tasks) {
