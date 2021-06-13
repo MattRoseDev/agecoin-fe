@@ -1,5 +1,5 @@
 <template>
-  <div :class="className">
+  <div>
     <label v-if="!!label" :for="name">{{ label }}</label>
     <div class="mt-1">
       <input
@@ -69,11 +69,6 @@ export default defineComponent({
       type: String,
       required: false
     },
-    className: {
-      type: String,
-      required: false
-    },
-
   },
 });
 </script>

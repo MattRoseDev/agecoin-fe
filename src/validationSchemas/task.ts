@@ -11,7 +11,7 @@ export const addTaskValidationSchema = Yup.object().shape({
 });
 
 export const editTaskValidationSchema = Yup.object().shape({
-  id: Yup.string().required(),
+  taskId: Yup.string().required(),
   title: Yup.string()
     .min(1)
     .required(),
