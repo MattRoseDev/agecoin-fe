@@ -1,7 +1,7 @@
 button {
-  @apply inline-flex items-center justify-center;
-  @apply px-4 py-2 select-none;
-  @apply border border-transparent rounded-md shadow-sm outline-none;
+  @apply inline-flex items-center justify-center overflow-hidden;
+  @apply px-4 py-2 select-none relative;
+  @apply rounded-md shadow-sm outline-none;
   @apply text-sm;
   outline: none !important;
 }
@@ -12,4 +12,9 @@ button.disabled {
 
 button.pill {
   @apply rounded-full;
+}
+
+.loading {
+  @apply w-full h-full absolute flex items-center justify-center;
+  background-color: inherit;
 }
