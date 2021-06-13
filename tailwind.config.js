@@ -5,10 +5,10 @@ module.exports = {
     extend: {
       minWidth: {
         "80": "20rem"
+      },
+      fontFamily: {
+        sans: ["Quicksand", "sans-serif"]
       }
-    },
-    fontFamily: {
-      sans: ["Inter", "sans-serif"]
     }
   },
   variants: {
