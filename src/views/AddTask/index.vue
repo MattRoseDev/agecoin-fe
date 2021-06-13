@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full bg-gray-100">
-    <div class="pt-2 p-2 lg:p-5 lg:w-2/5 lg:min-w-80">
+  <div class="w-full lg:w-2/5 lg:min-w-80">
+    <div class="pt-2 p-2 lg:p-5 ">
       <AddTask />
     </div>
   </div>
