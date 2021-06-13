@@ -7,7 +7,7 @@
 }
 
 .nav-item {
-  @apply group flex items-center px-2 py-2 my-1 text-sm font-medium rounded-md;
+  @apply flex items-center px-2 py-2 my-1 text-sm font-medium rounded-md;
 }
 
 .active-icon {
@@ -15,7 +15,7 @@
 }
 
 .inactive-icon {
-  @apply text-gray-400 group-hover:text-blue-500;
+  @apply text-gray-400 hover:text-blue-500;
 }
 
 .icon {

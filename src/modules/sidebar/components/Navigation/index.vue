@@ -26,23 +26,12 @@
 
 <script>
 import { defineComponent } from "vue";
-import { CollectionIcon, TemplateIcon } from "@heroicons/vue/outline";
+import useSidebar from "./../../hooks/useSidebar";
 
 export default defineComponent({
   name: "NavigationComponent",
-  components: {
-    CollectionIcon,
-    TemplateIcon
-  },
   setup() {
-    const navigation = [
-      { name: "Dashboard", to: "/dashboard", icon: TemplateIcon },
-      {
-        name: "Tasks",
-        to: "/tasks",
-        icon: CollectionIcon
-      }
-    ];
+    const { navigation } = useSidebar();
     return { navigation };
   }
 });

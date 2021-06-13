@@ -7,7 +7,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import Sidebar from "@/modules/sidebar/index";
+import Sidebar from "@/modules/sidebar/index.vue";
 import { useStore } from "@/store";
 import { initApp } from "@/utils/init";
 
