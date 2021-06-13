@@ -1,5 +1,5 @@
 <template>
-  <span :class="className" class="avatar">
+  <span :class="['avatar']">
     <img v-if="src" :src="src" />
     <svg
       v-else
@@ -20,7 +20,6 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Avatar",
   props: {
-    className: String,
     src: String
   }
 });

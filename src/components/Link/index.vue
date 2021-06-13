@@ -1,5 +1,5 @@
 <template>
-  <router-link class="link" :to="to" :class="className">
+  <router-link class="link" :to="to">
     <slot></slot>
   </router-link>
 </template>
@@ -10,9 +10,8 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "Link",
   props: {
-    to: String,
-    className: String,
-  },
+    to: String
+  }
 });
 </script>
 <style src="./style.css" scoped></style>
