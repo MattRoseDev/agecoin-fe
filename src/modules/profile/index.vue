@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center space-x-3 px-5 pt-5">
-      <Avatar className="h-14 w-14" />
+      <Avatar class="h-14 w-14" />
       <div class="flex-grow">
         <h1 class="text-xl font-bold text-gray-900">
           {{ store.state.account.user?.fullname }}

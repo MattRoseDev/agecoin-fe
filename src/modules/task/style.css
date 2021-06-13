@@ -1,0 +1,8 @@
+button {
+  outline: none;
+}
+
+.card-button {
+  @apply flex items-center justify-center font-medium w-full p-4;
+  outline: none;
+}
