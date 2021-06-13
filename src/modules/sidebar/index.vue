@@ -17,7 +17,7 @@
                 to="/profile"
                 class="flex min-w-0 items-center justify-between space-x-3"
               >
-                <Avatar className="w-10 h-10" />
+                <Avatar class="w-10 h-10" />
                 <span class="flex-1 flex flex-col min-w-0">
                   <span class="text-gray-900 text-sm font-medium truncate">
                     Edward
