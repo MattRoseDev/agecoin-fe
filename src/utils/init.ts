@@ -3,8 +3,9 @@ import { GET_USER_INFO } from "@/graphql/user";
 import { useStore } from "@/store";
 import { MutationType } from "@/@enums/mutations";
 import { isAuthenticated } from ".";
+import { InitApp } from "./@types/init";
 
-export const initApp = () => {
+export const initApp: InitApp = () => {
   if (isAuthenticated()) {
     const { onResult } = useQuery(GET_USER_INFO);
 

@@ -73,7 +73,7 @@ const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
 
 export const getStatus: GetStatus = () => {
   const store = useStore();
-  const { birthday, maxAge } = store?.state.account.user;
+  const { birthday, maxAge } = store?.state?.account.user;
 
   return {
     dailyCoins: getDailyCoins(),
