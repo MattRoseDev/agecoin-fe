@@ -10,4 +10,9 @@
   body {
     @apply bg-gray-50 dark:bg-gray-900;
   }
+
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
 }
