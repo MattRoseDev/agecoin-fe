@@ -5,7 +5,7 @@ import { useMutation } from "@vue/apollo-composable";
 import { useForm } from "vee-validate";
 import { ref, watch } from "vue";
 import { useStore } from "@/store";
-import * as Yup from "yup";
+import { addTaskValidationSchema } from "@/validationSchemas/task";
 
 type NewTaskForm = {
   title: string;
@@ -14,19 +14,8 @@ type NewTaskForm = {
 };
 
 export default () => {
-  const schema = Yup.object().shape({
-    title: Yup.string()
-      .min(1)
-      .required(),
-    defaultCoins: Yup.number()
-      .min(5)
-      .required(),
-    description: Yup.string().min(0)
-  });
-
   const { handleSubmit, isSubmitting, errors } = useForm<NewTaskForm>({
-    // TODO: fix type
-    validationSchema: schema as any,
+    validationSchema: addTaskValidationSchema,
     initialErrors: {
       title: "title is required",
       defaultCoins: "defaultCoins is required",
@@ -55,7 +44,6 @@ export default () => {
   });
 
   return {
-    schema,
     onSubmit,
     isValid,
     handleSubmit,

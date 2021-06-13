@@ -5,14 +5,16 @@
       <DurtationTime />
       <Description />
 
-      <Button
-        type="submit"
-        className=" bg-blue-500 text-white mt-2"
-        :disabled="!isValid"
-        :loading="loading"
-      >
-        Add Task
-      </Button>
+      <div class="flex">
+        <Button
+          type="submit"
+          class=" bg-blue-500 text-white mt-2 "
+          :disabled="!isValid"
+          :loading="loading || isSubmitting"
+        >
+          Add Task
+        </Button>
+      </div>
     </div>
   </form>
 </template>
@@ -20,25 +22,18 @@
 <script lang="ts">
 import { defineComponent, provide } from "vue";
 import Button from "@/components/Button/index.vue";
-import DurtationTime from "./components/DurationTime/index.vue";
-import Title from "./components/Title/index.vue";
-import Description from "./components/Description/index.vue";
+import DurtationTime from "@/components/Task/DurationTime/index.vue";
+import Title from "@/components/Task/Title/index.vue";
+import Description from "@/components/Task/Description/index.vue";
 import useAddTask from "./hooks/useAddTask";
 
 export default defineComponent({
-  name: "AddTaskPage",
+  name: "AddTaskModule",
   setup() {
-    const {
-      onSubmit,
-      isValid,
-      schema,
-      isSubmitting,
-      errors,
-      loading
-    } = useAddTask();
+    const { onSubmit, isValid, isSubmitting, errors, loading } = useAddTask();
     provide("isValid", isValid);
 
-    return { onSubmit, isValid, schema, isSubmitting, errors, loading };
+    return { onSubmit, isValid, isSubmitting, errors, loading };
   },
   components: {
     Button,
