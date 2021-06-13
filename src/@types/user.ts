@@ -1,4 +1,3 @@
-import { Nullable } from ".";
 import { Task } from "./task";
 
 export type User = {
@@ -10,5 +9,5 @@ export type User = {
   role: "ADMIN" | "USER";
   birthday: string;
   maxAge: number;
-  tasks?: Nullable<Task[]>;
+  tasks?: Task[];
 };
