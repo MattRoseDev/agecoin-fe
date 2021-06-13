@@ -3,9 +3,9 @@
     <div class="pt-2 p-2 lg:p-5">
       <router-link to="/task/add">
         <div
-          class="p-5 w-full rounded-lg shadow flex items-center text-blue-500 bg-white overflow-hidden"
+          class="px-2 py-2 text-2xl w-full rounded-lg shadow flex font-bold items-center text-blue-500 bg-white overflow-hidden"
         >
-          <PlusIcon class="w-6 h-6 mr-2" />New Task
+          <PlusIcon class="w-10 h-10 mr-1" />New Task
         </div>
       </router-link>
       <Tasks />
