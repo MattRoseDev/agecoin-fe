@@ -1,6 +1,18 @@
 import { CollectionIcon, ViewGridIcon, PlusIcon } from "@heroicons/vue/outline";
 
-export default () => {
+type NavItem = {
+  name: string;
+  to: string;
+  // TODO: fix type
+  icon: typeof ViewGridIcon;
+};
+
+type UseSidebar = {
+  navigation: NavItem[];
+  navbar: NavItem[];
+};
+
+export default (): UseSidebar => {
   const navigation = [
     {
       name: "Dashboard",

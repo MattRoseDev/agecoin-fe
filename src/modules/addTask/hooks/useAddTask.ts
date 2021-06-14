@@ -3,7 +3,7 @@ import { ADD_TASK } from "@/graphql/task";
 import router from "@/router";
 import { useMutation } from "@vue/apollo-composable";
 import { useForm } from "vee-validate";
-import { ref, watch } from "vue";
+import { Ref, ref, watch } from "vue";
 import { useStore } from "@/store";
 import { addTaskValidationSchema } from "@/validationSchemas/task";
 
@@ -13,7 +13,14 @@ type NewTaskForm = {
   description?: string;
 };
 
-export default () => {
+type UseAddTask = {
+  onSubmit: () => void;
+  isValid: Ref<boolean>;
+  isSubmitting: Ref<boolean>;
+  loading: Ref<boolean>;
+};
+
+export default (): UseAddTask => {
   const { handleSubmit, isSubmitting, errors } = useForm<NewTaskForm>({
     validationSchema: addTaskValidationSchema,
     initialErrors: {
@@ -46,9 +53,7 @@ export default () => {
   return {
     onSubmit,
     isValid,
-    handleSubmit,
     isSubmitting,
-    errors,
     loading
   };
 };

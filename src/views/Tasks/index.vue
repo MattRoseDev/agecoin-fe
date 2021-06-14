@@ -1,6 +1,6 @@
 <template>
   <div class="w-full lg:w-2/5 lg:min-w-80 flex flex-col">
-    <div class="px-2 lg:p-5">
+    <div class="pt-2 px-2 lg:p-5">
       <Tasks />
     </div>
   </div>

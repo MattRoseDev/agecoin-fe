@@ -1,13 +1,14 @@
 import { useMutation } from "@vue/apollo-composable";
 import { EDIT_TASK } from "@/graphql/task";
 import router from "@/router";
-import { ref, watch } from "vue";
+import { Ref, ref, watch } from "vue";
 import { useStore } from "@/store";
 import { useForm } from "vee-validate";
 import { MutationType } from "@/@enums/mutations";
 import useGetTask from "@/hooks/useGetTask";
 import { editTaskValidationSchema } from "@/validationSchemas/task";
 import { getRouteParamsByKey } from "@/utils/getRouteParams";
+import { Task } from "@/@types/task";
 
 type EditTaskForm = {
   taskId: string;
@@ -16,8 +17,16 @@ type EditTaskForm = {
   description?: string;
 };
 
-export default () => {
-  // TODO: fix type
+type UseEditTask = {
+  task: Ref<Task>;
+  onSubmit: () => void;
+  isValid: Ref<boolean>;
+  isSubmitting: Ref<boolean>;
+  loading: Ref<boolean>;
+  taskLoading: Ref<boolean>;
+};
+
+export default (): UseEditTask => {
   const taskId = getRouteParamsByKey("taskId");
   const { task, loading: taskLoading } = useGetTask(taskId);
 
