@@ -6,10 +6,6 @@
   @apply text-gray-700 hover:text-blue-900 hover:bg-blue-50;
 }
 
-.nav-item {
-  @apply flex items-center px-2 py-2 my-1 text-sm font-medium rounded-md;
-}
-
 .active-icon {
   @apply text-gray-800;
 }
@@ -19,5 +15,5 @@
 }
 
 .icon {
-  @apply mr-3 h-6 w-6;
+  @apply h-6 w-6;
 }
