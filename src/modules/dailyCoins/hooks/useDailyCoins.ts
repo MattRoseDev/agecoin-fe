@@ -1,9 +1,17 @@
-import { ref, watch } from "vue";
+import { Ref, ref, watch } from "vue";
 import { COINS_OF_DAY } from "@/constants";
 import { getStatus } from "@/utils/coins";
 import { numberFormat } from "@/utils/formats";
+import { NumberFormat } from "@/utils/@types/formats";
 
-export default () => {
+type UseDailyCoins = {
+  dailyCoins: Ref<number>;
+  savedDailyCoins: number;
+  wastedDailyCoins: Ref<number>;
+  numberFormat: NumberFormat;
+};
+
+export default (): UseDailyCoins => {
   const { dailyCoins } = getStatus();
   const savedDailyCoins = 0;
   const wastedDailyCoins = ref(
