@@ -16,7 +16,7 @@
             </small>
           </div>
         </div>
-        <div class="flex pt-0 p-4">
+        <div v-if="!showDelete" class="flex pt-0 p-4">
           <router-link :to="`/tasks/${task.id}/edit`"
             ><div
               class="flex items-center rounded-lg border text-xs px-3 py-2 mr-2 select-none"
@@ -26,12 +26,18 @@
             </div></router-link
           >
           <button
+            @click="toggleShowDelete"
             class="flex items-center rounded-lg duration-150 border hover:border-red-500 text-xs px-3 py-2 text-red-500 select-none"
           >
             <TrashIcon class="h-4 w-4 mr-1" />
             Delete
           </button>
         </div>
+        <Delete
+          :toggleShowDelete="toggleShowDelete"
+          :taskId="task.id"
+          v-if="showDelete"
+        />
         <div v-if="task?.active" class="w-full border-t flex">
           <button class="card-button border-r">
             Pause
@@ -50,6 +56,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Skeleton from "./components/Skeleton/index.vue";
+import Delete from "./components/Delete/index.vue";
 import useTask from "./hooks/useTask";
 import {
   PencilAltIcon,
@@ -62,15 +69,16 @@ export default defineComponent({
   name: "TaskModule",
   components: {
     Skeleton,
+    Delete,
     PencilAltIcon,
     TrashIcon,
     PauseIcon,
     CheckCircleIcon
   },
   setup() {
-    const { loading, task } = useTask();
+    const { loading, task, showDelete, toggleShowDelete } = useTask();
 
-    return { loading, task };
+    return { loading, task, showDelete, toggleShowDelete };
   }
 });
 </script>

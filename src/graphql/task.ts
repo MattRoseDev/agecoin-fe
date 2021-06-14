@@ -40,6 +40,17 @@ export const EDIT_TASK = gql`
   }
 `;
 
+export const DELETE_TASK = gql`
+  mutation deleteTask($taskId: ID!) {
+    deleteTask(taskId: $taskId) {
+      id
+      title
+      description
+      defaultCoins
+    }
+  }
+`;
+
 export const GET_TASKS = gql`
   query getTasks {
     getTasks {

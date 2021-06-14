@@ -18,5 +18,5 @@ export const editTaskValidationSchema = Yup.object().shape({
   defaultCoins: Yup.number()
     .min(5)
     .required(),
-  description: Yup.string().min(0)
+  description: Yup.string().notRequired()
 });

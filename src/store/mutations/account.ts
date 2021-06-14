@@ -12,6 +12,7 @@ export type AccountMutationsType = {
   [MutationType.SetTasks](state: State, task: Task[]): void;
   [MutationType.AppendNewTask](state: State, task: Task): void;
   [MutationType.EditTask](state: State, task: Task): void;
+  [MutationType.DeleteTask](state: State, taskId: Task['id']): void;
   [MutationType.ToggleTheme](state: State): void;
 }
 
@@ -77,6 +78,20 @@ export const accountMutations: AccountMutationsType = {
           return task
         }
         return t 
+      })
+      state.account.user = {
+        ...state.account?.user, 
+        tasks
+      }
+    }
+   },
+  [MutationType.DeleteTask](state: State, taskId: Task['id']) {
+    if(state.account?.user?.tasks) {
+      const tasks = state.account.user.tasks.filter(t => {
+        if(t.id == taskId) {
+          return false
+        }
+        return t
       })
       state.account.user = {
         ...state.account?.user, 
