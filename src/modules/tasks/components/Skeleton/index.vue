@@ -19,20 +19,7 @@ export default defineComponent({
     TaskSkeleton
   },
   setup() {
-    const items = [
-      {
-        titleWidth: 52
-      },
-      {
-        titleWidth: 40
-      },
-      {
-        titleWidth: 64
-      },
-      {
-        titleWidth: 32
-      }
-    ];
+    const items = new Array(4);
     return { items };
   }
 });
