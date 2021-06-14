@@ -37,6 +37,17 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/index.vue")
   },
   {
+    path: "/notifications",
+    name: "Notifications",
+    meta: {
+      private: true
+    },
+    component: () =>
+      import(
+        /* webpackChunkName: "notifications" */ "../views/Notifications/index.vue"
+      )
+  },
+  {
     path: "/tasks",
     name: "Tasks",
     meta: {
@@ -64,15 +75,6 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "editTask" */ "../views/EditTask/index.vue")
   },
   {
-    path: "/profile",
-    name: "Profile",
-    meta: {
-      private: true
-    },
-    component: () =>
-      import(/* webpackChunkName: "profile" */ "../views/Profile/index.vue")
-  },
-  {
     path: "/task/add",
     name: "AddTask",
     meta: {
@@ -80,6 +82,15 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () =>
       import(/* webpackChunkName: "addTask" */ "../views/AddTask/index.vue")
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    meta: {
+      private: true
+    },
+    component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/Profile/index.vue")
   }
 ];
 

@@ -11,7 +11,7 @@
       </router-link>
       <router-link
         v-for="item in navbar"
-        class="py-2.5 w-full flex justify-center"
+        class="py-3 w-full flex justify-center"
         :key="item.name"
         :to="item.to"
         v-slot="{ isActive }"
