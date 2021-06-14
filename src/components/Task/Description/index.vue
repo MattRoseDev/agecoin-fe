@@ -28,9 +28,13 @@ import { useField } from "vee-validate";
 export default defineComponent({
   name: "DescriptionComponent",
   setup(props) {
-    const { value: description, handleChange } = useField("description", undefined, {
-      initialValue: props.value
-    });
+    const { value: description, handleChange } = useField(
+      "description",
+      undefined,
+      {
+        initialValue: props.value || ""
+      }
+    );
     const tempValue = ref("");
 
     const showDescription = ref(!!props.value);
