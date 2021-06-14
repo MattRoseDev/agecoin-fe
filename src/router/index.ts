@@ -28,6 +28,15 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "logout" */ "../views/Logout/index.vue")
   },
   {
+    path: "/dashboard",
+    name: "Dashboard",
+    meta: {
+      private: true
+    },
+    component: () =>
+      import(/* webpackChunkName: "dashboard" */ "../views/Dashboard/index.vue")
+  },
+  {
     path: "/tasks",
     name: "Tasks",
     meta: {

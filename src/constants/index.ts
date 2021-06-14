@@ -1,4 +1,5 @@
 export const AGE_COIN = 1000 * 60;
+export const COINS_OF_DAY = 24 * 60;
 
 export const MINUTES = [
   {
