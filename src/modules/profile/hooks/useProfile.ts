@@ -1,12 +1,33 @@
-import { useStore } from "@/store";
+import { Store, useStore } from "@/store";
+import { CoinFormat, DateFormat } from "@/utils/@types/formats";
 import { getStatus } from "@/utils/coins";
 import { coinFormat, dateFormat } from "@/utils/formats";
+import { Ref } from "vue";
 
-export default () => {
+type ListItem = {
+  label: string;
+  value: string | number | undefined;
+};
+
+type List = {
+  title: string;
+  items: ListItem[];
+};
+
+type UseProfile = {
+  store: Store;
+  coinFormat: CoinFormat;
+  dateFormat: DateFormat;
+  spentCoins: Ref<number>;
+  personal: List;
+  ageCoins: List;
+};
+
+export default (): UseProfile => {
   const store = useStore();
   const { spentCoins, remainingCoins, totalCoins } = getStatus();
 
-  const personal = {
+  const personal: List = {
     title: "Personal",
     items: [
       {
@@ -19,7 +40,7 @@ export default () => {
       }
     ]
   };
-  const ageCoins = {
+  const ageCoins: List = {
     title: "Age Coins",
     items: [
       {

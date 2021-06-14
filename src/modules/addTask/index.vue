@@ -30,10 +30,10 @@ import useAddTask from "./hooks/useAddTask";
 export default defineComponent({
   name: "AddTaskModule",
   setup() {
-    const { onSubmit, isValid, isSubmitting, errors, loading } = useAddTask();
+    const { onSubmit, isValid, isSubmitting, loading } = useAddTask();
     provide("isValid", isValid);
 
-    return { onSubmit, isValid, isSubmitting, errors, loading };
+    return { onSubmit, isValid, isSubmitting, loading };
   },
   components: {
     Button,

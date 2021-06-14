@@ -5,9 +5,9 @@ import type { Task } from "@/@types/task";
 import { useStore } from "@/store";
 import { MutationType } from "@/@enums/mutations";
 
-type GetTask = { task: Ref<Task>; loading: Ref<boolean> };
+type UseGetTask = { task: Ref<Task>; loading: Ref<boolean> };
 
-export default (taskId: string): GetTask => {
+export default (taskId: string): UseGetTask => {
   const store = useStore();
   const task = ref<Task>({
 		id: '',

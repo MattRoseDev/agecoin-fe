@@ -2,12 +2,15 @@ import { useQuery } from "@vue/apollo-composable";
 import { GET_TASKS } from "@/graphql/task";
 import { useStore } from "@/store";
 import { MutationType } from "@/@enums/mutations";
+import { ref, Ref } from "vue";
 
-export default () => {
+type UseTasks = { loading: Ref<boolean> };
+
+export default (): UseTasks => {
   const store = useStore();
 
   if (store.getters.getTasks.length > 1) {
-    return { loading: false };
+    return { loading: ref(false) };
   } else {
     const { onResult, loading } = useQuery(GET_TASKS);
 

@@ -19,8 +19,8 @@ export const store = createStore<State>({
   getters
 });
 
-export function useStore() {
-  return store as Store;
+export function useStore(): Store {
+  return store;
 }
 
 export type Store = Omit<
