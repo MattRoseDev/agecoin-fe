@@ -15,10 +15,6 @@ export type GetRemainingCoins = (
 
 export type GetTotalCoins = (bithday?: string, maxAge?: number) => number;
 
-export type ExtractDate = (
-  bithday: string
-) => { day: number; month: number; year: number };
-
 export type GetStatus = (
   bithday?: string,
   maxAge?: number

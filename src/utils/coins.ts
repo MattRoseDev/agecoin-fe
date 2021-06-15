@@ -1,7 +1,7 @@
-import { AGE_COIN } from "@/constants";
+import { AGE_COIN, COINS_OF_DAY } from "@/constants";
+import moment from "moment";
 import { ref } from "vue";
 import {
-  ExtractDate,
   GetDailyCoins,
   GetEndDay,
   GetNowTime,
@@ -15,28 +15,21 @@ export const getDailyCoins: GetDailyCoins = () => {
   const hour = new Date().getHours();
   const minute = new Date().getMinutes();
   const sec = new Date().getSeconds();
-  const dailyCoins = ref<number>(1440 - (hour * 60 + minute));
+  const dailyCoins = ref<number>(COINS_OF_DAY - (hour * 60 + minute));
   setTimeout(() => {
     dailyCoins.value = dailyCoins.value - 1;
     setInterval(() => {
       dailyCoins.value = dailyCoins.value - 1;
-    }, 60 * 1000);
+    }, AGE_COIN);
   }, (60 - sec) * 1000);
 
   return dailyCoins;
 };
 
-const extractDate: ExtractDate = birthday => {
-  const day = new Date(birthday).getDate();
-  const month = new Date(birthday).getMonth() + 1;
-  const year = new Date(birthday).getFullYear();
-
-  return { day, month, year };
-};
-
 const getEndDay: GetEndDay = (birthday, maxAge) => {
-  const { day, month, year } = extractDate(birthday);
-  const endDay = new Date(`${month}-$${day}-$${year + maxAge}`).getTime();
+  const endDay = moment(birthday)
+    .add(maxAge, "years")
+    .valueOf();
 
   return endDay;
 };
@@ -72,9 +65,8 @@ export const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
   if (!birthday || !maxAge) {
     return 0;
   }
-  const { day, month, year } = extractDate(birthday);
   const startDay = new Date(birthday).getTime();
-  const endDay = new Date(`${month}-$${day}-$${year + maxAge}`).getTime();
+  const endDay = getEndDay(birthday, maxAge);
 
   return endDay - startDay;
 };

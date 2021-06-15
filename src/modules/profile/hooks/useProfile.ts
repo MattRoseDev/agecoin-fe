@@ -2,7 +2,7 @@ import { Store, useStore } from "@/store";
 import { CoinFormat, DateFormat } from "@/utils/@types/formats";
 import { getSpentCoins, getRemainingCoins, getTotalCoins } from "@/utils/coins";
 import { coinFormat, dateFormat } from "@/utils/formats";
-import { Ref, watch } from "vue";
+import { Ref } from "vue";
 
 type ListItem = {
   label: string;
