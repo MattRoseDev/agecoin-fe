@@ -20,7 +20,7 @@
       <small class="text-gray-600">Spent coins</small>
       <br />
       <div class="text-4xl font-bold">
-        {{ coinFormat(spentCoins) }}
+        {{ numberFormat(spentCoins) }}
       </div>
     </div>
     <List class="mx-5 mt-3" v-bind="personal" />

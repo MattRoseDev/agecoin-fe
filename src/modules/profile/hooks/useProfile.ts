@@ -1,12 +1,22 @@
 import { Store, useStore } from "@/store";
-import { CoinFormat, DateFormat } from "@/utils/@types/formats";
+import {
+  AgeCoinFormat,
+  CoinFormat,
+  DateFormat,
+  NumberFormat
+} from "@/utils/@types/formats";
 import { getSpentCoins, getRemainingCoins, getTotalCoins } from "@/utils/coins";
-import { coinFormat, dateFormat } from "@/utils/formats";
-import { Ref } from "vue";
+import {
+  coinFormat,
+  dateFormat,
+  ageCoinFormat,
+  numberFormat
+} from "@/utils/formats";
+import { reactive, Ref } from "vue";
 
 type ListItem = {
   label: string;
-  value: string | number | undefined;
+  value: string | number | undefined | Ref<number>;
 };
 
 type List = {
@@ -17,6 +27,8 @@ type List = {
 type UseProfile = {
   store: Store;
   coinFormat: CoinFormat;
+  ageCoinFormat: AgeCoinFormat;
+  numberFormat: NumberFormat;
   dateFormat: DateFormat;
   spentCoins: Ref<number>;
   personal: List;
@@ -50,7 +62,7 @@ export default (): UseProfile => {
     ]
   };
 
-  const ageCoins: List = {
+  const ageCoins: List = reactive({
     title: "Age Coins",
     items: [
       {
@@ -59,14 +71,24 @@ export default (): UseProfile => {
       },
       {
         label: "Remaining Coins",
-        value: coinFormat(remainingCoins.value)
+        value: remainingCoins,
+        numberFormat: true
       },
       {
         label: "Total Coins",
-        value: coinFormat(totalCoins)
+        value: numberFormat(totalCoins)
       }
     ]
-  };
+  });
 
-  return { store, coinFormat, dateFormat, spentCoins, personal, ageCoins };
+  return {
+    store,
+    coinFormat,
+    ageCoinFormat,
+    numberFormat,
+    dateFormat,
+    spentCoins,
+    personal,
+    ageCoins
+  };
 };

@@ -12,7 +12,7 @@
             item.label
           }}</span>
           <span class="text-sm font-medium text-gray-500">{{
-            item.value
+            item.numberFormat ? numberFormat(item.value) : item.value
           }}</span>
         </li>
       </ul>
@@ -23,12 +23,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import type { ItemType } from './@types'
+import {
+  numberFormat
+} from "@/utils/formats";
 
 export default defineComponent({
   name: "ListComponent",
   props: {
     title: String,
     items: Array as () => ItemType[]
+  },
+  setup() {
+    return { numberFormat }
   }
 });
 </script>
