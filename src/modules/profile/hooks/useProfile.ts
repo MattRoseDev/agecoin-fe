@@ -1,8 +1,8 @@
 import { Store, useStore } from "@/store";
 import { CoinFormat, DateFormat } from "@/utils/@types/formats";
-import { getStatus } from "@/utils/coins";
+import { getSpentCoins, getRemainingCoins, getTotalCoins } from "@/utils/coins";
 import { coinFormat, dateFormat } from "@/utils/formats";
-import { Ref } from "vue";
+import { Ref, watch } from "vue";
 
 type ListItem = {
   label: string;
@@ -25,7 +25,16 @@ type UseProfile = {
 
 export default (): UseProfile => {
   const store = useStore();
-  const { spentCoins, remainingCoins, totalCoins } = getStatus();
+
+  const spentCoins = getSpentCoins(store.getters.getUserBirthday);
+  const remainingCoins = getRemainingCoins(
+    store.getters.getUserBirthday,
+    store.getters.getUserMaxAge
+  );
+  const totalCoins = getTotalCoins(
+    store.getters.getUserBirthday,
+    store.getters.getUserMaxAge
+  );
 
   const personal: List = {
     title: "Personal",
@@ -36,10 +45,11 @@ export default (): UseProfile => {
       },
       {
         label: "Birthday",
-        value: dateFormat(store.state.account.user?.birthday || "")
+        value: dateFormat(store.state.account.user?.birthday)
       }
     ]
   };
+
   const ageCoins: List = {
     title: "Age Coins",
     items: [
