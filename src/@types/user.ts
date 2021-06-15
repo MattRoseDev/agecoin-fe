@@ -8,6 +8,6 @@ export type User = {
   theme: "light" | "dark";
   role: "ADMIN" | "USER";
   birthday: string;
-  maxAge: number;
+  maxAge?: number;
   tasks?: Task[];
 };

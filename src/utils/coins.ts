@@ -1,6 +1,5 @@
 import { AGE_COIN } from "@/constants";
 import { ref } from "vue";
-import { useStore } from "vuex";
 import {
   ExtractDate,
   GetDailyCoins,
@@ -12,7 +11,7 @@ import {
   GetTotalCoins
 } from "./@types/coins";
 
-const getDailyCoins: GetDailyCoins = () => {
+export const getDailyCoins: GetDailyCoins = () => {
   const hour = new Date().getHours();
   const minute = new Date().getMinutes();
   const sec = new Date().getSeconds();
@@ -48,7 +47,10 @@ const getNowTime: GetNowTime = () => {
   return now;
 };
 
-const getSpentCoins: GetSpentCoins = birthday => {
+export const getSpentCoins: GetSpentCoins = birthday => {
+  if (!birthday) {
+    return ref<number>(0);
+  }
   const startDay = new Date(birthday).getTime();
   const spentCoins = ref<number>(getNowTime() - startDay);
 
@@ -59,11 +61,17 @@ const getSpentCoins: GetSpentCoins = birthday => {
   return spentCoins;
 };
 
-const getRemainingCoins: GetRemainingCoins = (birthday, maxAge) => {
+export const getRemainingCoins: GetRemainingCoins = (birthday, maxAge) => {
+  if (!birthday || !maxAge) {
+    return ref<number>(0);
+  }
   return ref<number>(getEndDay(birthday, maxAge) - getNowTime());
 };
 
-const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
+export const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
+  if (!birthday || !maxAge) {
+    return 0;
+  }
   const { day, month, year } = extractDate(birthday);
   const startDay = new Date(birthday).getTime();
   const endDay = new Date(`${month}-$${day}-$${year + maxAge}`).getTime();
@@ -71,14 +79,11 @@ const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
   return endDay - startDay;
 };
 
-export const getStatus: GetStatus = () => {
-  const store = useStore();
-  const { birthday, maxAge } = store?.state?.account.user;
-
+export const getStatus: GetStatus = (birthday, maxAge) => {
   return {
-    dailyCoins: getDailyCoins(),
-    spentCoins: getSpentCoins(birthday),
-    remainingCoins: getRemainingCoins(birthday, maxAge),
-    totalCoins: getTotalCoins(birthday, maxAge)
+    spentCoins: birthday ? getSpentCoins(birthday) : ref(0),
+    remainingCoins:
+      birthday && maxAge ? getRemainingCoins(birthday, maxAge) : ref(0),
+    totalCoins: birthday && maxAge ? getTotalCoins(birthday, maxAge) : 0
   };
 };
