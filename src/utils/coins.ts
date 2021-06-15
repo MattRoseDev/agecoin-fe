@@ -10,6 +10,9 @@ import {
   GetStatus,
   GetTotalCoins
 } from "./@types/coins";
+import { ageCoinFormat } from "./formats";
+
+const sec = new Date().getSeconds();
 
 export const getDailyCoins: GetDailyCoins = () => {
   const hour = new Date().getHours();
@@ -45,11 +48,14 @@ export const getSpentCoins: GetSpentCoins = birthday => {
     return ref<number>(0);
   }
   const startDay = new Date(birthday).getTime();
-  const spentCoins = ref<number>(getNowTime() - startDay);
+  const spentCoins = ref<number>(ageCoinFormat(getNowTime() - startDay));
 
-  setInterval(() => {
-    spentCoins.value = getNowTime() - startDay;
-  }, AGE_COIN);
+  setTimeout(() => {
+    spentCoins.value = ageCoinFormat(getNowTime() - startDay);
+    setInterval(() => {
+      spentCoins.value = ageCoinFormat(getNowTime() - startDay);
+    }, AGE_COIN);
+  }, (60 - sec) * 1000);
 
   return spentCoins;
 };
@@ -58,7 +64,18 @@ export const getRemainingCoins: GetRemainingCoins = (birthday, maxAge) => {
   if (!birthday || !maxAge) {
     return ref<number>(0);
   }
-  return ref<number>(getEndDay(birthday, maxAge) - getNowTime());
+  const remainingCoins = ref<number>(
+    ageCoinFormat(getEndDay(birthday, maxAge) - getNowTime())
+  );
+
+  setTimeout(() => {
+    remainingCoins.value = remainingCoins.value - 1;
+    setInterval(() => {
+      remainingCoins.value = remainingCoins.value - 1;
+    }, AGE_COIN);
+  }, (60 - sec) * 1000);
+
+  return remainingCoins;
 };
 
 export const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
@@ -68,7 +85,7 @@ export const getTotalCoins: GetTotalCoins = (birthday, maxAge) => {
   const startDay = new Date(birthday).getTime();
   const endDay = getEndDay(birthday, maxAge);
 
-  return endDay - startDay;
+  return ageCoinFormat(endDay - startDay);
 };
 
 export const getStatus: GetStatus = (birthday, maxAge) => {
