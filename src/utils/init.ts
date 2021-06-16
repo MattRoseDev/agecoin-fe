@@ -4,14 +4,24 @@ import { useStore } from "@/store";
 import { MutationType } from "@/@enums/mutations";
 import { isAuthenticated } from ".";
 import { InitApp } from "./@types/init";
+import router from "@/router";
+import { ActionType } from "@/@enums/actions";
 
 export const initApp: InitApp = () => {
   if (isAuthenticated()) {
-    const { onResult } = useQuery(GET_USER_INFO);
+    const { onResult, onError } = useQuery(GET_USER_INFO);
 
     const store = useStore();
     onResult(result => {
       store.commit(MutationType.SetUser, result?.data?.getUserInfo);
+    });
+
+    // TODO: use refresh token
+    onError(error => {
+      if (error) {
+        store.dispatch(ActionType.Logout);
+        router.push("login");
+      }
     });
   }
 };
