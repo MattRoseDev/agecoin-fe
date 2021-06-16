@@ -52,6 +52,7 @@ export const accountMutations: AccountMutationsType = {
         ...state.account?.user, 
         tasks
       }
+      state.fetchedData.tasks = true
     }
    },
   [MutationType.AppendNewTask](state: State, task: Task) {

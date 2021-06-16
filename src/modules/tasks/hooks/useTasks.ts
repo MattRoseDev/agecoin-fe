@@ -9,7 +9,7 @@ type UseTasks = { loading: Ref<boolean> };
 export default (): UseTasks => {
   const store = useStore();
 
-  if (store.getters.getTasks.length > 1) {
+  if (store.getters.isTasksDataFetched) {
     return { loading: ref(false) };
   } else {
     const { onResult, loading } = useQuery(GET_TASKS);

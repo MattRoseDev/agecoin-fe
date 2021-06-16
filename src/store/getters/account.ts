@@ -14,24 +14,24 @@ export type AccountGettersType = {
   getUserMaxAge(state: State): User['maxAge'] | undefined;
 };
 
-export const accountGetters: GetterTree<State, State> & Getters = {
-  getUserInfo(state) {
+export const accountGetters: GetterTree<State, State> & AccountGettersType = {
+  getUserInfo(state: State) {
     return state.account?.user || undefined;
   },
-  getToken(state) {
+  getToken(state: State) {
     return state.account?.token;
   },
-  getTasks(state) {
+  getTasks(state: State) {
     return state.account?.user?.tasks || [];
   },
-  getTaskById(state) {
+  getTaskById(state: State) {
     return (taskId: string) => 
       state.account.user?.tasks?.find(task => task.id == taskId) || undefined
   },
-  getUserBirthday(state) {
+  getUserBirthday(state: State) {
     return state.account?.user?.birthday || undefined 
   },
-  getUserMaxAge(state) {
+  getUserMaxAge(state: State) {
     return state.account?.user?.maxAge || undefined 
   },
 };

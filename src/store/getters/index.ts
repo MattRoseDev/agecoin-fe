@@ -1,9 +1,14 @@
 import type { GetterTree } from "vuex";
 import type { State } from "../state";
 import { AccountGettersType, accountGetters } from "./account";
+import { FetchedDataGettersType, fetchedDataGetters} from "./fetchedData";
 
-export type Getters = AccountGettersType
+export type GetterTreeState = GetterTree<State, State>
+export type FetchedDataGetterTree = GetterTreeState & FetchedDataGettersType
+export type AccountGetterTree = GetterTreeState & AccountGettersType 
+export type Getters = AccountGetterTree | FetchedDataGetterTree
 
-export const getters: GetterTree<State, State> & Getters = {
-  ...accountGetters
+export const getters: Getters = {
+  ...accountGetters,
+  ...fetchedDataGetters
 };
