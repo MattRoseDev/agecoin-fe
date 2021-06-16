@@ -1,7 +1,6 @@
 import type { GetterTree } from "vuex";
 import type { State } from "../state";
 import { Account } from "@/@types/account";
-import { Getters } from '.'
 import { Task } from "@/@types/task";
 import { User } from "@/@types/user";
 

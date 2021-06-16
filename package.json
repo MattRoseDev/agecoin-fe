@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/assets/**/*.json\""
   },
   "dependencies": {
     "@apollo/client": "^3.3.18",
@@ -23,11 +24,13 @@
     "subscriptions-transport-ws": "^0.9.18",
     "vee-validate": "^4.4.2",
     "vue": "^3.0.0",
+    "vue-i18n": "^9.1.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@intlify/vue-i18n-loader": "^2.1.0",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/postcss7-compat": "^2.1.2",
     "@types/apollo-upload-client": "^14.1.0",
@@ -60,6 +63,7 @@
     "sass-loader": "^8.0.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "^4.2.4",
+    "vue-cli-plugin-i18n": "~2.1.1",
     "vue-jest": "^5.0.0-0"
   },
   "eslintConfig": {
