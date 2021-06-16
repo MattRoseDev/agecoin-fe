@@ -7,7 +7,7 @@ module.exports = {
         "80": "20rem"
       },
       fontFamily: {
-        sans: ["Quicksand", "sans-serif"]
+        sans: ["Nunito", "sans-serif"]
       }
     }
   },

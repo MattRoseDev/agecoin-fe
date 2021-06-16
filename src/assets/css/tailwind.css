@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  @import url("fonts/quicksand.css");
+  @import url("fonts/nunito.css");
 
   body {
     @apply bg-gray-50 dark:bg-gray-900;
