@@ -11,7 +11,7 @@
           <span class="text-sm font-medium text-gray-700">{{
             item.label
           }}</span>
-          <span class="text-sm font-medium text-gray-500">{{
+          <span v-if="item.value" class="text-sm font-medium text-gray-500">{{
             item.numberFormat ? numberFormat(item.value) : item.value
           }}</span>
         </li>

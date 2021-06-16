@@ -16,7 +16,8 @@ import { reactive, Ref } from "vue";
 
 type ListItem = {
   label: string;
-  value: string | number | undefined | Ref<number>;
+  value: string | number | undefined | Ref<number | string | undefined>;
+  numberFormat?: boolean;
 };
 
 type List = {
