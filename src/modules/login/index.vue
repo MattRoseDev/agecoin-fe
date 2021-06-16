@@ -26,7 +26,7 @@
     </div>
     <div class="mb-4">
       <Input
-        label="Username"
+        :label="t('default.login.username')"
         name="username"
         type="text"
         successMessage="Great!"
@@ -34,7 +34,7 @@
     </div>
     <div class="mb-4">
       <Input
-        label="Password"
+        :label="t('default.login.password')"
         name="password"
         type="password"
         successMessage="Excellent!"
@@ -44,7 +44,7 @@
       type="submit"
       class="text-white bg-blue-500 hover:bg-blue-600 my-3"
       :loading="loading"
-      >Login</Button
+      >{{ t("default.login.button") }}</Button
     >
     <div class="flex justify-center">
       <Link
@@ -63,13 +63,15 @@ import Input from "@/components/Input/index.vue";
 import Link from "@/components/Link/index.vue";
 import Button from "@/components/Button/index.vue";
 import useLogin from "./hooks/useLogin";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "LoginModule",
   setup() {
+    const { t } = useI18n();
     const { schema, login, loading, errorMessage } = useLogin();
 
-    return { schema, login, loading, errorMessage };
+    return { schema, login, loading, errorMessage, t };
   },
   components: {
     Form,
