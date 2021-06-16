@@ -1,6 +1,6 @@
 <template>
   <!-- TODO: add skeleton -->
-  <div v-if="store.state.account.user" class="w-full lg:w-2/5 h-screen">
+  <div v-if="store?.state?.account?.user" class="w-full lg:w-2/5 h-screen">
     <Profile />
   </div>
 </template>
