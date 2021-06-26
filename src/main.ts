@@ -6,6 +6,7 @@ import router from "./router";
 import { store } from "./store";
 import { defaultClient } from "@/apollo";
 import "@/assets/css/tailwind.css";
+import i18n from './i18n'
 
 createApp({
   setup() {
@@ -14,7 +15,7 @@ createApp({
   render() {
     return h(App);
   }
-})
+}).use(i18n)
   .use(store)
   .use(router)
   .mount("#app");
