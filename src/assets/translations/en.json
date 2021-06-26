@@ -1,0 +1,8 @@
+{
+  "login": {
+    "button": "Log In",
+    "register": "Register Now",
+    "username": "Username",
+    "password": "Password"
+  }
+}
