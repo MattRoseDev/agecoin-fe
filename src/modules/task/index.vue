@@ -19,18 +19,15 @@
         <div v-if="!showDelete" class="flex pt-0 p-4">
           <router-link :to="`/tasks/${task.id}/edit`"
             ><div
-              class="flex items-center rounded-lg border text-xs px-3 py-2 mr-2 select-none"
+              class="flex items-center rounded-lg border text-xs p-3 mr-3 select-none shadow-sm hover:shadow-none"
             >
-              <PencilAltIcon class="h-4 w-4 mr-1" />
-              Edit
-            </div></router-link
-          >
+              <PencilAltIcon class="h-6 w-6" /></div
+          ></router-link>
           <button
             @click="toggleShowDelete"
-            class="flex items-center rounded-lg duration-150 border hover:border-red-500 text-xs px-3 py-2 text-red-500 select-none"
+            class="flex items-center rounded-lg duration-150 border hover:border-red-500 text-xs p-3 text-red-500 select-none shadow-sm hover:shadow-none"
           >
-            <TrashIcon class="h-4 w-4 mr-1" />
-            Delete
+            <TrashIcon class="h-6 w-6" />
           </button>
         </div>
         <Delete

@@ -12,7 +12,7 @@
       <div class="flex">
         <Button
           type="submit"
-          class=" bg-blue-500 text-white mt-2"
+          class=" bg-blue-500 text-white mt-2 shadow hover:shadow-none"
           :disabled="false"
           :loading="loading || isSubmitting"
         >
