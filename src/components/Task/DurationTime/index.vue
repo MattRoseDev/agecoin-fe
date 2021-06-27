@@ -3,7 +3,9 @@
     <small class="text-gray-600 mt-2 mb-2">Duration Time</small>
     <div class="flex items-center justify-start w-full">
       <div class="flex items-center w-full">
-        <div class="w-20 border-gray-300 border rounded-md overflow-hidden">
+        <div
+          class="w-20 border-gray-300 border rounded-md overflow-hidden shadow-sm hover:shadow-none"
+        >
           <small class="text-gray-600 text-center block border-b bg-gray-50"
             >hours</small
           >
@@ -22,7 +24,9 @@
           </select>
         </div>
         <div class="text-4xl px-2">:</div>
-        <div class="w-20 border-gray-300 border rounded-md overflow-hidden">
+        <div
+          class="w-20 border-gray-300 border rounded-md overflow-hidden shadow-sm hover:shadow-none"
+        >
           <small class="text-gray-600 text-center block border-b bg-gray-50"
             >minutes</small
           >
