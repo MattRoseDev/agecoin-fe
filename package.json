@@ -32,7 +32,7 @@
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^2.1.0",
     "@tailwindcss/forms": "^0.3.2",
-    "@tailwindcss/postcss7-compat": "^2.1.2",
+    "@tailwindcss/postcss7-compat": "^2.2.4",
     "@types/apollo-upload-client": "^14.1.0",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
@@ -58,7 +58,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
     "lint-staged": "^9.5.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^6.0.1",
     "postcss": "^7",
     "sass-loader": "^8.0.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
