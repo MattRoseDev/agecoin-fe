@@ -25,6 +25,24 @@
     </div>
     <List class="mx-5 mt-3" v-bind="personal" />
     <List class="mx-5 mt-3" v-bind="ageCoins" />
+    <div class="mx-5 mt-3">
+      <small class="block mb-2 ml-1 font-bold text-gray-600">Appearance</small>
+      <div class="bg-white shadow overflow-hidden rounded-lg">
+        <ul class="divide-y divide-gray-200">
+          <li class="px-3 py-3 flex justify-between items-center">
+            <span class="text-sm font-medium text-gray-700">Dark mode</span>
+            <span
+              class="text-sm font-medium text-gray-500 inline-flex items-center"
+            >
+              <Toggle
+                :toggleFunction="toggleTheme"
+                :initialValue="store.getters.isThemeDark"
+              />
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,12 +50,14 @@
 import { defineComponent } from "vue";
 import Avatar from "@/components/Avatar/index.vue";
 import List from "@/components/List/index.vue";
+import Toggle from "@/components/Toggle/index.vue";
 import { CogIcon } from "@heroicons/vue/outline";
 import useProfile from "./hooks/useProfile";
 
 export default defineComponent({
   name: "ProfileModule",
   components: {
+    Toggle,
     Avatar,
     List,
     CogIcon
