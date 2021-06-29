@@ -8,5 +8,5 @@ export type FetchedDataGettersType = {
 export const fetchedDataGetters: GetterTree<State, State> & FetchedDataGettersType = {
   isTasksDataFetched(state: State) {
     return state.fetchedData.tasks
-  }
+  },
 }

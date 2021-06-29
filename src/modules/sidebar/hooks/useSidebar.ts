@@ -1,9 +1,4 @@
-import {
-  CollectionIcon,
-  ViewGridIcon,
-  PlusIcon,
-  BellIcon
-} from "@heroicons/vue/outline";
+import { CollectionIcon, ViewGridIcon, PlusIcon } from "@heroicons/vue/outline";
 
 type NavItem = {
   name: string;
@@ -25,14 +20,9 @@ export default (): UseSidebar => {
       icon: ViewGridIcon
     },
     {
-      name: "Tasks",
-      to: "/tasks",
+      name: "History",
+      to: "/history",
       icon: CollectionIcon
-    },
-    {
-      name: "Notifications",
-      to: "/notifications",
-      icon: BellIcon
     },
     {
       name: "New Task",
@@ -53,14 +43,9 @@ export default (): UseSidebar => {
       icon: PlusIcon
     },
     {
-      name: "Tasks",
-      to: "/tasks",
+      name: "History",
+      to: "/history",
       icon: CollectionIcon
-    },
-    {
-      name: "Notifications",
-      to: "/notifications",
-      icon: BellIcon
     }
   ];
   return { navigation, navbar };

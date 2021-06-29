@@ -3,4 +3,7 @@ export type Task = {
   title: string;
   description?: string;
   defaultCoins: number;
+  coins?: number;
+  status?: number;
+  active?: boolean;
 };

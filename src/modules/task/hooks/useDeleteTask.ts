@@ -21,7 +21,7 @@ export default (taskId: string): UseDeleteTask => {
 
     onDone(result => {
       store.commit(MutationType.DeleteTask, result.data.deleteTask.id);
-      router.push("/tasks");
+      router.push("/dashboard");
     });
   };
 

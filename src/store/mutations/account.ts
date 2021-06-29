@@ -9,6 +9,7 @@ export type AccountMutationsType = {
   [MutationType.SetToken](state: State, token: string): void;
   [MutationType.ClearToken](state: State): void;
   [MutationType.SetIsAuthenticated](state: State, isAuthenticated: boolean): void;
+  // Tasks
   [MutationType.SetTasks](state: State, task: Task[]): void;
   [MutationType.AppendNewTask](state: State, task: Task): void;
   [MutationType.EditTask](state: State, task: Task): void;
@@ -99,7 +100,7 @@ export const accountMutations: AccountMutationsType = {
         tasks
       }
     }
-   },
+  },
   [MutationType.ToggleTheme](state: State) {
     if(state.account?.user) {
       state.account.user = { 
