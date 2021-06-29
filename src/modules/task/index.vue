@@ -2,16 +2,24 @@
   <div>
     <Skeleton v-if="loading" />
     <div v-if="!loading">
-      <div class="bg-white shadow rounded-lg w-full">
-        <div class="text-3xl px-4 pt-4 mb-0 font-bold" v-if="task?.title">
+      <div class="bg-white dark:bg-gray-800 shadow rounded-lg w-full">
+        <div
+          class="text-3xl px-4 pt-4 mb-0 font-bold dark:text-white"
+          v-if="task?.title"
+        >
           {{ task.title }}
         </div>
-        <p class="text-sm px-4 my-2 font-medium" v-if="task?.description">
+        <p
+          class="text-sm px-4 my-2 font-medium dark:text-white"
+          v-if="task?.description"
+        >
           {{ task.description }}
         </p>
         <div class="relative px-4">
           <div v-if="task?.defaultCoins" class="pb-2">
-            <small class="text-xs inline-block text-gray-500">
+            <small
+              class="text-xs inline-block text-gray-500 dark:text-gray-300"
+            >
               {{ task.defaultCoins }} coins
             </small>
           </div>

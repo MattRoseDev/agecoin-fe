@@ -1,18 +1,21 @@
 <template>
   <div class="flex flex-col my-1">
-    <small class="text-gray-600 mt-2 mb-2">Duration Time</small>
+    <small class="text-gray-600 dark:text-gray-200 mt-2 mb-2"
+      >Duration Time</small
+    >
     <div class="flex items-center justify-start w-full">
       <div class="flex items-center w-full">
         <div
-          class="w-20 border-gray-300 border rounded-md overflow-hidden shadow-sm hover:shadow-none"
+          class="w-20 border-gray-300 dark:border-gray-700 border rounded-md overflow-hidden shadow-sm hover:shadow-none"
         >
-          <small class="text-gray-600 text-center block border-b bg-gray-50"
+          <small
+            class="text-gray-600 dark:text-white text-center block border-b dark:broder-gray-700 bg-gray-50 dark:bg-gray-900"
             >hours</small
           >
           <select
             @change="calculateCoins"
             name="hours"
-            class="appearance-none"
+            class="appearance-none "
             v-model="selectedHour"
           >
             <option
@@ -25,15 +28,16 @@
         </div>
         <div class="text-4xl px-2">:</div>
         <div
-          class="w-20 border-gray-300 border rounded-md overflow-hidden shadow-sm hover:shadow-none"
+          class="w-20 border-gray-300 dark:border-gray-700 border rounded-md overflow-hidden shadow-sm hover:shadow-none"
         >
-          <small class="text-gray-600 text-center block border-b bg-gray-50"
+          <small
+            class="text-gray-600 dark:text-white text-center block border-b dark:broder-gray-700 bg-gray-50 dark:bg-gray-900"
             >minutes</small
           >
           <select
             @change="calculateCoins"
             name="minutes"
-            class="appearance-none"
+            class="appearance-none "
             v-model="selectedMinute"
           >
             <option
@@ -45,10 +49,10 @@
           </select>
         </div>
         <div class="w-28 inline-flex flex-col items-center">
-          <span class="font-bold text-3xl text-gray-900">
+          <span class="font-bold text-3xl text-gray-900 dark:text-white">
             {{ defaultCoins }}
           </span>
-          <span class="text-xs">coins</span>
+          <span class="text-xs dark:text-white">coins</span>
         </div>
       </div>
     </div>

@@ -17,20 +17,24 @@
       </div>
     </div>
     <div v-if="spentCoins" class="mt-5 mx-5">
-      <small class="text-gray-600">Spent coins</small>
+      <small class="text-gray-600 dark:text-gray-300">Spent coins</small>
       <br />
-      <div class="text-4xl font-bold">
+      <div class="text-4xl font-bold dark:text-white">
         {{ numberFormat(spentCoins) }}
       </div>
     </div>
     <List class="mx-5 mt-3" v-bind="personal" />
     <List class="mx-5 mt-3" v-bind="ageCoins" />
     <div class="mx-5 mt-3">
-      <small class="block mb-2 ml-1 font-bold text-gray-600">Appearance</small>
-      <div class="bg-white shadow overflow-hidden rounded-lg">
+      <small class="block mb-2 ml-1 font-bold text-gray-600 dark:text-gray-50"
+        >Appearance</small
+      >
+      <div class="bg-white dark:bg-gray-800 shadow overflow-hidden rounded-lg">
         <ul class="divide-y divide-gray-200">
           <li class="px-3 py-3 flex justify-between items-center">
-            <span class="text-sm font-medium text-gray-700">Dark mode</span>
+            <span class="text-sm font-medium text-gray-700 dark:text-white"
+              >Dark mode</span
+            >
             <span
               class="text-sm font-medium text-gray-500 inline-flex items-center"
             >

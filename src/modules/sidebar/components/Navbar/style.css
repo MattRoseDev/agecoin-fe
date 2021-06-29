@@ -1,5 +1,5 @@
 .active {
-  @apply bg-blue-50 text-blue-500;
+  @apply bg-blue-50 dark:bg-gray-500 text-blue-500 dark:text-blue-100;
 }
 
 .inactive {
@@ -7,7 +7,7 @@
 }
 
 .active-icon {
-  @apply text-gray-800;
+  @apply text-gray-800 dark:text-white;
 }
 
 .inactive-icon {

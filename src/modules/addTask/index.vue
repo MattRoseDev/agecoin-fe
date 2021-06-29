@@ -1,6 +1,6 @@
 <template>
   <form @submit="onSubmit">
-    <div class="flex flex-col shadow bg-white rounded-lg p-4">
+    <div class="flex flex-col shadow bg-white dark:bg-gray-800 rounded-lg p-4">
       <Title />
       <DurtationTime />
       <Description />

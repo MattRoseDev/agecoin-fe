@@ -1,5 +1,6 @@
 select {
   @apply border-0 focus:outline-none cursor-pointer;
+  @apply dark:bg-gray-900 dark:text-white;
   @apply font-bold w-full py-2;
   @apply rounded-md;
   outline: 0px !important;

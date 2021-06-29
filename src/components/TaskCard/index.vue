@@ -1,15 +1,23 @@
 <template>
   <router-link :to="`/tasks/${id}`">
-    <div class="bg-white mb-2 lg:mb-5 shadow rounded-lg w-full">
-      <div class="text-3xl px-4 pt-4 mb-0 font-bold" v-if="title">
+    <div
+      class="bg-white dark:bg-gray-800 mb-2 lg:mb-5 shadow rounded-lg w-full"
+    >
+      <div
+        class="text-3xl px-4 pt-4 mb-0 font-bold dark:text-white"
+        v-if="title"
+      >
         {{ title }}
       </div>
-      <p class="text-sm px-4 my-2 font-medium" v-if="description">
+      <p
+        class="text-sm px-4 my-2 font-medium dark:text-white"
+        v-if="description"
+      >
         {{ description }}
       </p>
       <div class="relative px-4">
         <div v-if="defaultCoins" class="pb-2">
-          <small class="text-xs inline-block text-gray-500">
+          <small class="text-xs inline-block text-gray-500 dark:text-gray-300">
             {{ defaultCoins }} coins
           </small>
         </div>

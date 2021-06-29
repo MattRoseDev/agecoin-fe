@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed bottom-0 w-full z-20">
     <div
-      class="flex flex-row-reverse justify-around items-stretch bg-white shadow border-t"
+      class="flex flex-row-reverse justify-around items-stretch bg-white dark:bg-gray-800 shadow border-t dark:border-gray-600"
     >
       <router-link
         class="flex justify-center items-center w-full"
