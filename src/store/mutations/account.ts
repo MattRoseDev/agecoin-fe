@@ -14,7 +14,6 @@ export type AccountMutationsType = {
   [MutationType.AppendNewTask](state: State, task: Task): void;
   [MutationType.EditTask](state: State, task: Task): void;
   [MutationType.DeleteTask](state: State, taskId: Task['id']): void;
-  [MutationType.ToggleTheme](state: State): void;
 }
 
 export const accountMutations: AccountMutationsType = {
@@ -101,17 +100,4 @@ export const accountMutations: AccountMutationsType = {
       }
     }
   },
-  [MutationType.ToggleTheme](state: State) {
-    if(state.account?.user) {
-      state.account.user = { 
-        ...state.account?.user, 
-        theme: state.account?.user?.theme === 'light' ? 'dark' : 'light' 
-      }
-      if(state.account?.user?.theme === 'light') {
-        document.querySelector("html")?.classList.add("dark");
-      } else {
-        document.querySelector("html")?.classList.remove("dark");
-      }
-    }
-   },
 };
