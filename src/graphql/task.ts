@@ -52,8 +52,8 @@ export const DELETE_TASK = gql`
 `;
 
 export const GET_TASKS = gql`
-  query getTasks {
-    getTasks {
+  query getTasks($status: Int) {
+    getTasks(filter: { status: $status }) {
       id
       title
       description

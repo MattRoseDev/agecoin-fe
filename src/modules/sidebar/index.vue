@@ -44,7 +44,7 @@ import Navigation from "./components/Navigation/index.vue";
 import Navbar from "./components/Navbar/index.vue";
 
 export default defineComponent({
-  name: "SidebarFeature",
+  name: "SidebarModule",
   components: {
     Avatar,
     Navigation,

@@ -45,7 +45,7 @@ export default (): UseAddTask => {
 
       onDone(result => {
         store.commit(MutationType.AppendNewTask, result.data.addTask);
-        router.push("/tasks");
+        router.push("/dashboard");
       });
     }
   });
