@@ -3,7 +3,7 @@
   <form @submit="onSubmit">
     <div
       v-if="task?.title"
-      class="flex flex-col shadow bg-white rounded-lg p-4"
+      class="flex flex-col shadow bg-white dark:bg-gray-800 rounded-lg p-4"
     >
       <Title :value="task?.title" />
       <DurtationTime :value="task?.defaultCoins" />

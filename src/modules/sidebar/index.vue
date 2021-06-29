@@ -2,10 +2,10 @@
   <div>
     <div class="hidden lg:flex lg:flex-col items-start py-5 h-full">
       <div
-        class="flex flex-col w-72 shadow bg-white rounded-lg top-0 sticky mb-3"
+        class="flex flex-col w-72 shadow bg-white dark:bg-gray-800 rounded-lg top-0 sticky mb-3"
       >
         <div
-          class="flex items-center px-5 py-4 font-bold border-b boder-gray-900"
+          class="flex items-center px-5 py-4 font-bold border-b boder-gray-900 dark:border-gray-600 dark:text-white"
         >
           Logo
         </div>
@@ -19,10 +19,15 @@
               >
                 <Avatar class="w-10 h-10" />
                 <span class="flex-1 flex flex-col min-w-0">
-                  <span class="text-gray-900 text-sm font-medium truncate">
+                  <span
+                    class="text-gray-900 dark:text-white text-sm font-medium truncate"
+                  >
                     Edward
                   </span>
-                  <span class="text-gray-500 text-sm truncate">@favecode</span>
+                  <span
+                    class="text-gray-500 dark:text-gray-300 text-sm truncate"
+                    >@favecode</span
+                  >
                 </span>
               </router-link>
             </span>

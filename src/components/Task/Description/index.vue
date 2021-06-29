@@ -2,8 +2,10 @@
   <div class="mt-4">
     <small
       @click="toggleShowDescription"
-      class="cursor-pointer inline-flex items-center mb-2 select-none"
-      :class="showDescription ? 'text-gray-500' : 'text-blue-500'"
+      class="cursor-pointer inline-flex items-center mb-2 select-none "
+      :class="
+        showDescription ? 'text-gray-500 dark:text-gray-300' : 'text-blue-500'
+      "
     >
       <PlusIcon v-if="!showDescription" class="w-4 h-4" />
       <MinusSmIcon v-if="showDescription" class="w-4 h-4" />
@@ -12,7 +14,7 @@
     <textarea
       v-if="showDescription"
       type="text"
-      class="description"
+      class="description dark:bg-gray-800"
       placeholder="Description"
       rows="5"
       v-model="description"

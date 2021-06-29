@@ -2,7 +2,7 @@
   <input
     type="text"
     name="title"
-    class="title"
+    class="title dark:bg-gray-800 dark:text-white"
     placeholder="Title"
     v-model="title"
     autocomplete="off"
