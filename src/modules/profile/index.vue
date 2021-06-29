@@ -3,10 +3,10 @@
     <div class="flex items-center space-x-3 px-5 pt-5">
       <Avatar class="h-14 w-14" />
       <div class="flex-grow">
-        <h1 class="text-xl font-bold text-gray-900">
+        <h1 class="text-xl font-bold text-gray-900 dark:text-white">
           {{ store.state.account.user?.fullname }}
         </h1>
-        <p class="text-sm font-medium text-gray-500">
+        <p class="text-sm font-medium text-gray-500 dark:text-gray-300">
           @{{ store.state.account.user?.username }}
         </p>
       </div>

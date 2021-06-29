@@ -16,6 +16,12 @@ export const initApp: InitApp = () => {
       store.commit(MutationType.SetUser, result?.data?.getUserInfo);
     });
 
+    if (store.state.theme === "light") {
+      document.querySelector("html")?.classList.remove("dark");
+    } else {
+      document.querySelector("html")?.classList.add("dark");
+    }
+
     // TODO: use refresh token
     onError(error => {
       if (error) {

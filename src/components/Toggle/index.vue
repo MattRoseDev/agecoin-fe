@@ -36,8 +36,8 @@ export default defineComponent({
     const enabled = ref(props.initialValue);
 
     const toggleEnabled = () => {
-      enabled.value = !enabled.value;
       props.toggleFunction();
+      enabled.value = !enabled.value;
     };
     return { enabled, toggleEnabled };
   }

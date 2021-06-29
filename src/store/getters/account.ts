@@ -11,7 +11,6 @@ export type AccountGettersType = {
   getTaskById(state: State): (taskId: string) => Task | undefined;
   getUserBirthday(state: State): User['birthday'] | undefined;
   getUserMaxAge(state: State): User['maxAge'] | undefined;
-  isThemeDark(state: State): boolean | undefined;
 };
 
 export const accountGetters: GetterTree<State, State> & AccountGettersType = {
@@ -33,8 +32,5 @@ export const accountGetters: GetterTree<State, State> & AccountGettersType = {
   },
   getUserMaxAge(state: State) {
     return state.account?.user?.maxAge || undefined 
-  },
-  isThemeDark(state: State) {
-    return state.account?.user?.theme == 'dark' 
   },
 };
