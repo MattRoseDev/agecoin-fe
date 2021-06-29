@@ -1,10 +1,5 @@
-import { Store, useStore } from "@/store";
-import {
-  AgeCoinFormat,
-  CoinFormat,
-  DateFormat,
-  NumberFormat
-} from "@/utils/@types/formats";
+import { MutationType } from "@/@enums/mutations";
+import { useStore } from "@/store";
 import { getSpentCoins, getRemainingCoins, getTotalCoins } from "@/utils/coins";
 import {
   coinFormat,
@@ -12,29 +7,8 @@ import {
   ageCoinFormat,
   numberFormat
 } from "@/utils/formats";
-import { reactive, Ref } from "vue";
-
-type ListItem = {
-  label: string;
-  value: string | number | undefined | Ref<number | string | undefined>;
-  numberFormat?: boolean;
-};
-
-type List = {
-  title: string;
-  items: ListItem[];
-};
-
-type UseProfile = {
-  store: Store;
-  coinFormat: CoinFormat;
-  ageCoinFormat: AgeCoinFormat;
-  numberFormat: NumberFormat;
-  dateFormat: DateFormat;
-  spentCoins: Ref<number>;
-  personal: List;
-  ageCoins: List;
-};
+import { reactive } from "vue";
+import { List, UseProfile } from "../@types";
 
 export default (): UseProfile => {
   const store = useStore();
@@ -82,6 +56,9 @@ export default (): UseProfile => {
     ]
   });
 
+  const toggleTheme = () => {
+    store.commit(MutationType.ToggleTheme, undefined);
+  };
   return {
     store,
     coinFormat,
@@ -90,6 +67,7 @@ export default (): UseProfile => {
     dateFormat,
     spentCoins,
     personal,
-    ageCoins
+    ageCoins,
+    toggleTheme
   };
 };
