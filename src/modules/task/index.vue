@@ -24,35 +24,7 @@
             </small>
           </div>
         </div>
-        <div v-if="!showDelete" class="flex pt-0 p-4">
-          <router-link :to="`/tasks/${task.id}/edit`"
-            ><div
-              class="flex items-center rounded-lg border text-xs p-3 mr-3 select-none shadow-sm hover:shadow-none"
-            >
-              <PencilAltIcon class="h-6 w-6" /></div
-          ></router-link>
-          <button
-            @click="toggleShowDelete"
-            class="flex items-center rounded-lg duration-150 border hover:border-red-500 text-xs p-3 text-red-500 select-none shadow-sm hover:shadow-none"
-          >
-            <TrashIcon class="h-6 w-6" />
-          </button>
-        </div>
-        <Delete
-          :toggleShowDelete="toggleShowDelete"
-          :taskId="task.id"
-          v-if="showDelete"
-        />
-        <div v-if="task?.active" class="w-full border-t flex">
-          <button class="card-button border-r">
-            Pause
-            <PauseIcon class="w-6 h-6 ml-1" />
-          </button>
-          <button class="card-button text-blue-500">
-            Done
-            <CheckCircleIcon class="w-6 h-6 ml-1" />
-          </button>
-        </div>
+        <Footer :task="task" />
       </div>
     </div>
   </div>
@@ -61,29 +33,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Skeleton from "./components/Skeleton/index.vue";
-import Delete from "./components/Delete/index.vue";
+import Footer from "./components/Footer/index.vue";
 import useTask from "./hooks/useTask";
-import {
-  PencilAltIcon,
-  TrashIcon,
-  PauseIcon,
-  CheckCircleIcon
-} from "@heroicons/vue/outline";
 
 export default defineComponent({
   name: "TaskModule",
   components: {
     Skeleton,
-    Delete,
-    PencilAltIcon,
-    TrashIcon,
-    PauseIcon,
-    CheckCircleIcon
+    Footer
   },
   setup() {
-    const { loading, task, showDelete, toggleShowDelete } = useTask();
+    const { loading, task } = useTask();
 
-    return { loading, task, showDelete, toggleShowDelete };
+    return { loading, task };
   }
 });
 </script>

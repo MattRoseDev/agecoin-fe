@@ -1,0 +1,17 @@
+.startButton {
+  @apply hover:border-blue-300 hover:bg-blue-500 hover:bg-opacity-10;
+  @apply dark:hover:border-blue-800;
+  @apply text-blue-500 mr-3 w-12 h-12;
+}
+
+.doneButton {
+  @apply hover:border-green-300 hover:bg-green-500 hover:bg-opacity-10;
+  @apply dark:hover:border-green-800;
+  @apply text-green-500 mr-3 w-12 h-12;
+}
+
+.moreButton {
+  @apply hover:border-gray-300 hover:bg-gray-500 hover:bg-opacity-10;
+  @apply dark:hover:border-gray-600 dark:hover:bg-opacity-10 dark:hover:bg-gray-900;
+  @apply text-gray-500 w-10 h-10;
+}
