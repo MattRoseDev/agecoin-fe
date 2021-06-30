@@ -6,16 +6,16 @@
     <span
       class="h-4 w-16 bg-gray-300 dark:bg-gray-700 inline-block rounded-md my-4"
     ></span>
-    <div v-if="buttons" class="flex justify-end w-100">
-      <div class="flex flex-grow justify-start">
-        <span
-          class="w-12 h-12 bg-gray-300 dark:bg-gray-700 inline-block rounded-md"
-        ></span>
-      </div>
+    <div v-if="buttons" class="flex w-100">
       <div class="flex">
         <span
           class="w-12 h-12 bg-gray-300 dark:bg-gray-700 inline-block rounded-md mr-3"
         ></span>
+        <span
+          class="w-12 h-12 bg-gray-300 dark:bg-gray-700 inline-block rounded-md"
+        ></span>
+      </div>
+      <div class="flex flex-grow justify-end">
         <span
           class="w-12 h-12 bg-gray-300 dark:bg-gray-700 inline-block rounded-md"
         ></span>
