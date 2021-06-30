@@ -1,10 +1,12 @@
 <template>
-  <div class="w-full px-4 pb-4 pt-2 border-t">
-    <p class="font-bold mb-3">Delete your Task?</p>
+  <div
+    class="w-full flex items-center justify-between p-3 lg:p-4 border-t dark:border-gray-600 border-dashed"
+  >
+    <p class="font-bold dark:text-white">Delete your Task?</p>
     <div class="flex text-xs">
       <Button
         @click="toggleShowDelete"
-        class="flex items-center rounded-lg border text-xs px-3 py-2 mr-2 select-none"
+        class="flex items-center rounded-lg border text-xs px-3 py-2 mr-2 select-none dark:text-white"
         >Cancel</Button
       >
       <Button
