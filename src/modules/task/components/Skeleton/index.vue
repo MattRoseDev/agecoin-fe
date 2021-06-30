@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex flex-col items-center animate-pulse">
-    <TaskSkeleton />
+    <TaskSkeleton :buttons="true" />
   </div>
 </template>
 
