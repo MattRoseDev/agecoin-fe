@@ -1,0 +1,6 @@
+button,
+.link {
+  @apply flex items-center justify-center select-none duration-300;
+  @apply shadow-sm hover:shadow-none dark:bg-gray-900 dark:border-gray-700;
+  @apply rounded-lg border outline-none text-xs;
+}
