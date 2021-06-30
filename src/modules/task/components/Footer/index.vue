@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!showDelete" class="flex items-end pt-0 p-3 lg:p-4">
+  <div v-if="!showDelete" class="flex items-end pt-0 p-3 lg:p-4 lg:pt-0">
     <div class="flex">
       <Button :onClick="toggleShowDelete" class="startButton">
         <PlayIcon class="h-9 w-9" />
