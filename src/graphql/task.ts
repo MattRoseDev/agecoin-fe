@@ -13,6 +13,23 @@ export const ADD_TASK = gql`
       title
       description
       defaultCoins
+      coins
+      active
+      status
+    }
+  }
+`;
+
+export const START_TASK = gql`
+  mutation start($taskId: ID!) {
+    start(taskId: $taskId) {
+      id
+      title
+      description
+      defaultCoins
+      coins
+      active
+      status
     }
   }
 `;
@@ -36,6 +53,9 @@ export const EDIT_TASK = gql`
       title
       description
       defaultCoins
+      coins
+      active
+      status
     }
   }
 `;
@@ -47,6 +67,9 @@ export const DELETE_TASK = gql`
       title
       description
       defaultCoins
+      coins
+      active
+      status
     }
   }
 `;
@@ -58,6 +81,9 @@ export const GET_TASKS = gql`
       title
       description
       defaultCoins
+      coins
+      active
+      status
     }
   }
 `;
@@ -69,6 +95,9 @@ export const GET_TASK = gql`
       title
       description
       defaultCoins
+      coins
+      active
+      status
     }
   }
 `;
