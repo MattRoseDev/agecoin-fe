@@ -3,8 +3,9 @@
     <Skeleton v-if="loading" />
     <div v-if="!loading">
       <Task
-        v-for="task in store.state.account.user.tasks"
-        v-bind="task"
+        class="mb-2 lg:mb-5"
+        v-for="task in store.state.tasks"
+        :task="task"
         :key="task.id"
       />
     </div>
