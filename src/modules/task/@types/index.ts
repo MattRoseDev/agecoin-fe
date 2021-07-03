@@ -6,6 +6,16 @@ export type UseFooter = {
   toggleShowMoreContent: () => void;
   showDelete: Ref<boolean>;
   toggleShowDelete: () => void;
+  startTask: () => void;
+  pauseTask: () => void;
+  finishTask: () => void;
+  loadingStartTask: Ref<boolean>;
+  loadingPauseTask: Ref<boolean>;
+  loadingFinishTask: Ref<boolean>;
+};
+
+export type UseFooterProps = {
+  task: Task;
 };
 
 export type UseTask = {

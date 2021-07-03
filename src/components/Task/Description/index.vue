@@ -14,7 +14,7 @@
     <textarea
       v-if="showDescription"
       type="text"
-      class="description dark:bg-gray-800"
+      class="description dark:bg-gray-800 dark:text-white"
       placeholder="Description"
       rows="5"
       v-model="description"

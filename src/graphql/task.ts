@@ -21,8 +21,36 @@ export const ADD_TASK = gql`
 `;
 
 export const START_TASK = gql`
-  mutation start($taskId: ID!) {
-    start(taskId: $taskId) {
+  mutation startTask($taskId: ID!) {
+    startTask(taskId: $taskId) {
+      id
+      title
+      description
+      defaultCoins
+      coins
+      active
+      status
+    }
+  }
+`;
+
+export const PAUSE_TASK = gql`
+  mutation pauseTask($taskId: ID!) {
+    pauseTask(taskId: $taskId) {
+      id
+      title
+      description
+      defaultCoins
+      coins
+      active
+      status
+    }
+  }
+`;
+
+export const FINISH_TASK = gql`
+  mutation finishTask($taskId: ID!, $coins: Int) {
+    finishTask(taskId: $taskId, input: { coins: $coins }) {
       id
       title
       description

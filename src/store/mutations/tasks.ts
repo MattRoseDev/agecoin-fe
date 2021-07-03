@@ -1,5 +1,6 @@
 import { MutationType } from '@/@enums/mutations'
 import { Task } from '@/@types/task';
+import { moveActiveTaskToFirstItem } from '@/utils/task';
 import type { State } from '../state'
 
 export type TasksMutationsType = {
@@ -7,11 +8,14 @@ export type TasksMutationsType = {
   [MutationType.AppendNewTask](state: State, task: Task): void;
   [MutationType.EditTask](state: State, task: Task): void;
   [MutationType.DeleteTask](state: State, taskId: Task['id']): void;
+  [MutationType.StartTask](state: State, taskId: Task['id']): void;
+  [MutationType.PauseTask](state: State, taskId: Task['id']): void;
+  [MutationType.FinishTask](state: State, task: Task): void;
 }
 
 export const tasksMutations: TasksMutationsType = {
   [MutationType.SetTasks](state: State, tasks: Task[]) {
-    state.tasks = tasks
+    state.tasks = moveActiveTaskToFirstItem(tasks)
     state.fetchedData.tasks = true
    },
   [MutationType.AppendNewTask](state: State, task: Task) {
@@ -40,5 +44,42 @@ export const tasksMutations: TasksMutationsType = {
       return t
     })
     state.tasks = tasks
+  },
+  [MutationType.StartTask](state: State, taskId: Task['id']) {
+    const tasks = state.tasks.map(task => {
+      if(task.id === taskId) {
+        return {
+          ...task,
+          active: true
+        }
+      }
+      return {
+        ...task,
+        active: false
+      }
+    })
+   
+    state.tasks = moveActiveTaskToFirstItem(tasks)
+  },
+  [MutationType.PauseTask](state: State, taskId: Task['id']) {
+    state.tasks = state.tasks.map(task => {
+      if(task.id === taskId) {
+        return  {
+          ...task,
+          active: false
+        }
+      }
+      return task
+    })
+  },
+  [MutationType.FinishTask](state: State, task: Task) {
+    const tasks = state.tasks.map(t => {
+      if(t.id === task.id) {
+        return task 
+      }
+      return t 
+    })
+
+    state.tasks = moveActiveTaskToFirstItem(tasks)
   },
 };
