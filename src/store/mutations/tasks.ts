@@ -1,6 +1,6 @@
 import { MutationType } from '@/@enums/mutations'
 import { Task } from '@/@types/task';
-import { moveActiveTaskToFirstItem } from '@/utils/task';
+import { deactiveAllTasks, moveActiveTaskToFirstItem } from '@/utils/task';
 import type { State } from '../state'
 
 export type TasksMutationsType = {
@@ -46,6 +46,7 @@ export const tasksMutations: TasksMutationsType = {
     state.tasks = tasks
   },
   [MutationType.StartTask](state: State, taskId: Task['id']) {
+    state.tasks = deactiveAllTasks(state.tasks)
     const tasks = state.tasks.map(task => {
       if(task.id === taskId) {
         return {
