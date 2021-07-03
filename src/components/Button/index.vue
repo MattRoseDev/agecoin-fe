@@ -4,6 +4,7 @@
     :class="[disabled ? 'disabled' : '']"
     :disabled="disabled"
   >
+    <!-- TODO: move this part to a component -->
     <div class="loading" v-if="loading">
       <svg
         class="animate-spin h-5 w-5 text-white"

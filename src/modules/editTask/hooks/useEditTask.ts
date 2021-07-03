@@ -60,7 +60,7 @@ export default (): UseEditTask => {
 
       onDone(result => {
         store.commit(MutationType.EditTask, result.data.editTask);
-        router.push(`/tasks/${task.value.id}`);
+        router.push(`/dashboard`);
       });
     }
   });

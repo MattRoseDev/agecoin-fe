@@ -9,5 +9,9 @@ export enum MutationType {
   AppendNewTask = "APPEND_NEW_TASK",
   EditTask = "EDIT_TASK",
   DeleteTask = "DELETE_TASK",
+  StartTask = "START_TASK",
+  PauseTask = "PAUSE_TASK",
+  FinishTask = "FINISH_TASK",
+  // Theme
   ToggleTheme = "TOGGLE_THEME"
 }

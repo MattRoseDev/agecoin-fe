@@ -1,10 +1,28 @@
 <template>
-  <div v-if="!showDelete" class="flex items-end pt-0 p-3 lg:p-4 lg:pt-0">
+  <div v-if="!showDelete" class="flex items-end mx-3 mt-2 lg:mx-4 lg:mt-3">
     <div class="flex">
-      <Button :onClick="toggleShowDelete" class="startButton">
+      <Button
+        v-if="!task.active"
+        :onClick="startTask"
+        :loading="loadingStartTask"
+        class="startButton"
+      >
         <PlayIcon class="h-9 w-9" />
       </Button>
-      <Button :onClick="toggleShowDelete" class="doneButton">
+      <Button
+        v-if="task.active"
+        :onClick="pauseTask"
+        :loading="loadingPauseTask"
+        class="pauseButton"
+      >
+        <PauseIcon class="h-9 w-9" />
+      </Button>
+      <Button
+        v-if="task.status < 2"
+        :onClick="finishTask"
+        :loading="loadingFinishTask"
+        class="doneButton"
+      >
         <CheckCircleIcon class="h-9 w-9" />
       </Button>
     </div>
@@ -45,7 +63,7 @@ import {
   TrashIcon,
   DotsHorizontalIcon
 } from "@heroicons/vue/outline";
-import { PlayIcon, CheckCircleIcon } from "@heroicons/vue/solid";
+import { PlayIcon, CheckCircleIcon, PauseIcon } from "@heroicons/vue/solid";
 import { Task } from "@/@types/task";
 
 export default defineComponent({
@@ -55,15 +73,19 @@ export default defineComponent({
     Delete,
     PencilAltIcon,
     PlayIcon,
+    PauseIcon,
     TrashIcon,
     DotsHorizontalIcon,
     CheckCircleIcon
   },
   props: {
-    task: Object as () => Task
+    task: {
+      type: Object as () => Task,
+      required: true
+    }
   },
-  setup() {
-    return useFooter();
+  setup(props) {
+    return useFooter({ task: props.task });
   }
 });
 </script>

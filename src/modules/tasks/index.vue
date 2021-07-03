@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Task from "@/components/TaskCard/index.vue";
+import Task from "@/modules/task/index.vue";
 import Skeleton from "./components/Skeleton/index.vue";
 import useTasks from "./hooks/useTasks";
 import { useStore } from "@/store";
