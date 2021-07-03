@@ -1,5 +1,5 @@
 import { Task } from "@/@types/task";
-import { MoveActiveTaskToFirstItem } from "./@types/task";
+import { DeactiveAllTasks, MoveActiveTaskToFirstItem } from "./@types/task";
 
 export const moveActiveTaskToFirstItem: MoveActiveTaskToFirstItem = tasks => {
   if (!tasks || !tasks.length) {
@@ -16,4 +16,15 @@ export const moveActiveTaskToFirstItem: MoveActiveTaskToFirstItem = tasks => {
   result.push(...otherTasks);
 
   return result;
+};
+
+export const deactiveAllTasks: DeactiveAllTasks = tasks => {
+  if (!tasks || !tasks.length) {
+    return [];
+  }
+
+  return tasks.map(task => ({
+    ...task,
+    active: false
+  }));
 };
