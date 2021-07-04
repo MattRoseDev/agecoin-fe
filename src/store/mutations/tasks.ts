@@ -1,6 +1,6 @@
 import { MutationType } from '@/@enums/mutations'
 import { Task } from '@/@types/task';
-import { deactiveAllTasks, moveActiveTaskToFirstItem } from '@/utils/task';
+import { deactiveAllTasks, formatTasks  } from '@/utils/task';
 import type { State } from '../state'
 
 export type TasksMutationsType = {
@@ -15,7 +15,7 @@ export type TasksMutationsType = {
 
 export const tasksMutations: TasksMutationsType = {
   [MutationType.SetTasks](state: State, tasks: Task[]) {
-    state.tasks = moveActiveTaskToFirstItem(tasks)
+    state.tasks = formatTasks(tasks)
     state.fetchedData.tasks = true
    },
   [MutationType.AppendNewTask](state: State, task: Task) {
@@ -60,7 +60,7 @@ export const tasksMutations: TasksMutationsType = {
       }
     })
    
-    state.tasks = moveActiveTaskToFirstItem(tasks)
+    state.tasks = formatTasks(tasks)
   },
   [MutationType.PauseTask](state: State, taskId: Task['id']) {
     state.tasks = state.tasks.map(task => {
@@ -81,6 +81,6 @@ export const tasksMutations: TasksMutationsType = {
       return t 
     })
 
-    state.tasks = moveActiveTaskToFirstItem(tasks)
+    state.tasks = formatTasks(tasks)
   },
 };
