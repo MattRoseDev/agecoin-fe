@@ -1,7 +1,19 @@
 import { Task } from "@/@types/task";
-import { DeactiveAllTasks, MoveActiveTaskToFirstItem } from "./@types/task";
+import {
+  DeactiveAllTasks,
+  FormatTasks,
+  MoveActiveTaskToTheFirst,
+  MoveFinishedTasksToTheEnd
+} from "./@types/task";
 
-export const moveActiveTaskToFirstItem: MoveActiveTaskToFirstItem = tasks => {
+export const formatTasks: FormatTasks = tasks => {
+  tasks = moveActiveTaskToTheFirst(tasks);
+  tasks = moveFinishedTasksToTheEnd(tasks);
+
+  return tasks;
+};
+
+export const moveActiveTaskToTheFirst: MoveActiveTaskToTheFirst = tasks => {
   if (!tasks || !tasks.length) {
     return [];
   }
@@ -14,6 +26,25 @@ export const moveActiveTaskToFirstItem: MoveActiveTaskToFirstItem = tasks => {
   }
 
   result.push(...otherTasks);
+
+  return result;
+};
+
+export const moveFinishedTasksToTheEnd: MoveFinishedTasksToTheEnd = tasks => {
+  if (!tasks || !tasks.length) {
+    return [];
+  }
+  const fininshedTasks = tasks.filter(task => task.status === 2);
+  const otherTasks = tasks.filter(task => task.status !== 2);
+  const result: Task[] = [];
+
+  if (otherTasks) {
+    result.push(...otherTasks);
+  }
+
+  if (fininshedTasks) {
+    result.push(...fininshedTasks);
+  }
 
   return result;
 };
