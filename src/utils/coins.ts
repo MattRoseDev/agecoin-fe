@@ -1,4 +1,4 @@
-import { AGE_COIN, COINS_OF_DAY } from "@/constants";
+import { AGE_COIN_DURATION, COINS_OF_DAY } from "@/constants";
 import moment from "moment";
 import { ref } from "vue";
 import {
@@ -22,7 +22,7 @@ export const getDailyCoins: GetDailyCoins = () => {
     dailyCoins.value = dailyCoins.value - 1;
     setInterval(() => {
       dailyCoins.value = dailyCoins.value - 1;
-    }, AGE_COIN);
+    }, AGE_COIN_DURATION);
   }, (60 - getSeconds()) * 1000);
 
   return dailyCoins;
@@ -54,7 +54,7 @@ export const getSpentCoins: GetSpentCoins = birthday => {
     spentCoins.value = calculateSpentCoins();
     setInterval(() => {
       spentCoins.value = calculateSpentCoins();
-    }, AGE_COIN);
+    }, AGE_COIN_DURATION);
   }, (60 - getSeconds()) * 1000);
 
   return spentCoins;
@@ -73,7 +73,7 @@ export const getRemainingCoins: GetRemainingCoins = (birthday, maxAge) => {
     remainingCoins.value = calculateRemainingCoins();
     setInterval(() => {
       remainingCoins.value = calculateRemainingCoins();
-    }, AGE_COIN);
+    }, AGE_COIN_DURATION);
   }, (60 - getSeconds()) * 1000);
 
   return remainingCoins;
