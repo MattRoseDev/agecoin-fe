@@ -12,6 +12,7 @@ export enum MutationType {
   StartTask = "START_TASK",
   PauseTask = "PAUSE_TASK",
   FinishTask = "FINISH_TASK",
+  ArchiveTask = "ARCHIVE_TASK",
   // Theme
   ToggleTheme = "TOGGLE_THEME"
 }

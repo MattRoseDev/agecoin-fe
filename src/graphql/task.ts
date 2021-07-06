@@ -62,6 +62,20 @@ export const FINISH_TASK = gql`
   }
 `;
 
+export const ARCHIVE_TASK = gql`
+  mutation archiveTask($taskId: ID!) {
+    archiveTask(taskId: $taskId) {
+      id
+      title
+      description
+      defaultCoins
+      coins
+      active
+      status
+    }
+  }
+`;
+
 export const EDIT_TASK = gql`
   mutation editTask(
     $taskId: ID!

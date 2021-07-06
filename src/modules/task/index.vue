@@ -3,11 +3,13 @@
     <div v-if="task">
       <div
         :class="[
-          task.status == 2 && 'opacity-50',
           'flex flex-col pb-3 lg:pb-4 bg-white dark:bg-gray-800 shadow rounded-lg w-full'
         ]"
       >
-        <div @click="toggleExpandTask" class="cursor-pointer">
+        <div
+          @click="toggleExpandTask"
+          :class="[task.status == 2 && 'opacity-50', 'cursor-pointer']"
+        >
           <div class="flex mx-4 mt-4 items-start">
             <div
               :class="[
@@ -37,8 +39,7 @@
               <small
                 class="text-xs inline-block text-gray-500 dark:text-gray-300"
               >
-                <!-- TODO: write a format function -->
-                <span class="text-sm">{{ Math.round(task.coins / 60) }}</span>
+                <span class="text-sm">{{ convertSecToMin(task.coins) }}</span>
                 coins
               </small>
             </div>
@@ -55,6 +56,7 @@ import { defineComponent, ref } from "vue";
 import Footer from "./components/Footer/index.vue";
 import { Task } from "@/@types/task";
 import { ChevronDownIcon } from "@heroicons/vue/outline";
+import { convertSecToMin } from "@/utils/formats";
 
 export default defineComponent({
   name: "TaskModule",
@@ -67,12 +69,12 @@ export default defineComponent({
     completeView: Boolean
   },
   setup(props) {
-    const shouldCompleteView = ref(props.completeView);
+    const shouldCompleteView = ref(props.completeView || props?.task?.active);
 
     const toggleExpandTask = () =>
       (shouldCompleteView.value = !shouldCompleteView.value);
 
-    return { shouldCompleteView, toggleExpandTask };
+    return { shouldCompleteView, toggleExpandTask, convertSecToMin };
   }
 });
 </script>

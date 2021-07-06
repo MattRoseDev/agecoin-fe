@@ -18,12 +18,20 @@
         <PauseIcon class="h-9 w-9" />
       </Button>
       <Button
-        v-if="task.status < 2"
+        v-if="task.status !== 2"
         :onClick="finishTask"
         :loading="loadingFinishTask"
         class="doneButton"
       >
         <CheckCircleIcon class="h-9 w-9" />
+      </Button>
+      <Button
+        v-if="task.status == 2"
+        :onClick="archiveTask"
+        :loading="loadingArchiveTask"
+        class="archiveButton"
+      >
+        <ArchiveIcon class="h-9 w-9" />
       </Button>
     </div>
     <div class="flex justify-end flex-grow">
@@ -63,7 +71,12 @@ import {
   TrashIcon,
   DotsHorizontalIcon
 } from "@heroicons/vue/outline";
-import { PlayIcon, CheckCircleIcon, PauseIcon } from "@heroicons/vue/solid";
+import {
+  PlayIcon,
+  CheckCircleIcon,
+  PauseIcon,
+  ArchiveIcon
+} from "@heroicons/vue/solid";
 import { Task } from "@/@types/task";
 
 export default defineComponent({
@@ -75,6 +88,7 @@ export default defineComponent({
     PlayIcon,
     PauseIcon,
     TrashIcon,
+    ArchiveIcon,
     DotsHorizontalIcon,
     CheckCircleIcon
   },

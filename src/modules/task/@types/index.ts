@@ -9,9 +9,11 @@ export type UseFooter = {
   startTask: () => void;
   pauseTask: () => void;
   finishTask: () => void;
+  archiveTask: () => void;
   loadingStartTask: Ref<boolean>;
   loadingPauseTask: Ref<boolean>;
   loadingFinishTask: Ref<boolean>;
+  loadingArchiveTask: Ref<boolean>;
 };
 
 export type UseFooterProps = {
