@@ -63,6 +63,7 @@
 import { useField } from "vee-validate";
 import { defineComponent, ref } from "vue";
 import { MINUTES, HOURS } from "@/constants";
+import { convertSecToMin } from "@/utils/formats";
 
 export default defineComponent({
   name: "DurationTimeComponent",
@@ -79,8 +80,14 @@ export default defineComponent({
     }
   },
   setup(props) {
+    const formatValue = (coins: number | undefined) => {
+      if (!coins) return 0;
+
+      return convertSecToMin(coins);
+    };
+
     const { value: defaultCoins } = useField("defaultCoins", undefined, {
-      initialValue: props.value || 0
+      initialValue: formatValue(props.value)
     });
     const selectedHour = ref(0);
     const selectedMinute = ref(0);
@@ -89,8 +96,7 @@ export default defineComponent({
       selectedHour.value = Math.floor(coins / 60);
       selectedMinute.value = coins % 60;
     };
-
-    handleSelectBox(props?.value || 0);
+    handleSelectBox(formatValue(props.value));
 
     const calculateCoins = () => {
       const hours = selectedHour.value;
