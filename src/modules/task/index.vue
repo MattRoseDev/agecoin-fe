@@ -37,7 +37,9 @@
               <small
                 class="text-xs inline-block text-gray-500 dark:text-gray-300"
               >
-                <span class="text-sm">{{ task.coins }}</span> coins
+                <!-- TODO: write a format function -->
+                <span class="text-sm">{{ Math.round(task.coins / 60) }}</span>
+                coins
               </small>
             </div>
           </div>
