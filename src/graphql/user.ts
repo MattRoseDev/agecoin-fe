@@ -12,3 +12,17 @@ export const GET_USER_INFO = gql`
     }
   }
 `;
+
+export const GET_DAILY_COINS = gql`
+  query getDailyCoins($timezoneOffset: Int!) {
+    getDailyCoins(input: { timezoneOffset: $timezoneOffset }) {
+      remainingCoins
+      savedCoins
+      wastedCoins
+      activeTask {
+        id
+        coins
+      }
+    }
+  }
+`;

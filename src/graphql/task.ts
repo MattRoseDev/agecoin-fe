@@ -117,8 +117,8 @@ export const DELETE_TASK = gql`
 `;
 
 export const GET_TASKS = gql`
-  query getTasks($status: Int) {
-    getTasks(filter: { status: $status }) {
+  query getTasks($status: Int, $timezoneOffset: Int!) {
+    getTasks(filter: { status: $status, timezoneOffset: $timezoneOffset }) {
       id
       title
       description
