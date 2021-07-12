@@ -13,6 +13,7 @@ interface State {
   theme: Theme;
   tasks: Task[];
   dailyCoins?: DailyCoins;
+  activeTask?: Task;
 }
 
 const state: State = {

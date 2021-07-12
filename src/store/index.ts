@@ -39,7 +39,8 @@ export type Store = Omit<
 } & {
   dispatch<K extends keyof Actions>(
     key: K,
-    payload?: Parameters<Actions[K]>[1],
+    // TODO: fix this type
+    payload?: Parameters<any[K]>[1],
     options?: DispatchOptions
-  ): ReturnType<Actions[K]>;
+  ): void;
 };

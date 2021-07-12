@@ -1,7 +1,8 @@
-import { ActionContext } from "vuex";
+import { ActionContext, ActionTree } from "vuex";
 import { Mutations } from "../mutations";
 import { State } from "../state";
 import { accountActions, AccountActionsType } from "./account";
+import { dailyCoinsActions, DailyCoinsActionsType } from "./dailyCoins";
 
 export type ActionAugments = Omit<ActionContext<State, State>, "commit"> & {
   commit<K extends keyof Mutations>(
@@ -10,8 +11,14 @@ export type ActionAugments = Omit<ActionContext<State, State>, "commit"> & {
   ): ReturnType<Mutations[K]>;
 };
 
-export type Actions = AccountActionsType;
+type ActionTreeState = ActionTree<State, State>;
 
-export const actions = {
-  ...accountActions
+type AccountActions = AccountActionsType & ActionTreeState;
+type DailyCoinsActions = DailyCoinsActionsType & ActionTreeState;
+
+export type Actions = AccountActions | DailyCoinsActions;
+
+export const actions: Actions = {
+  ...accountActions,
+  ...dailyCoinsActions
 };
