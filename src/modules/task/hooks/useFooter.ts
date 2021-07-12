@@ -1,4 +1,3 @@
-import { MutationType } from "@/@enums/mutations";
 import { useStore } from "@/store";
 import { ref } from "vue";
 import { UseFooter, UseFooterProps } from "../@types";
@@ -9,6 +8,7 @@ import {
   PAUSE_TASK,
   START_TASK
 } from "@/graphql/task";
+import { ActionType } from "@/@enums/actions";
 
 export default ({ task }: UseFooterProps): UseFooter => {
   const store = useStore();
@@ -53,7 +53,7 @@ export default ({ task }: UseFooterProps): UseFooter => {
 
     onDoneStartTask(result => {
       if (result.data) {
-        store.commit(MutationType.StartTask, task.id);
+        store.dispatch(ActionType.StartTask, task.id);
       }
     });
   };
@@ -65,7 +65,7 @@ export default ({ task }: UseFooterProps): UseFooter => {
 
     onDonePauseTask(result => {
       if (result) {
-        store.commit(MutationType.PauseTask, task.id);
+        store.dispatch(ActionType.PauseTask, task.id);
       }
     });
   };
@@ -77,7 +77,7 @@ export default ({ task }: UseFooterProps): UseFooter => {
 
     onDoneFinishTask(result => {
       if (result) {
-        store.commit(MutationType.FinishTask, result.data.finishTask);
+        store.dispatch(ActionType.FinishTask, result.data.finishTask);
       }
     });
   };
@@ -89,7 +89,7 @@ export default ({ task }: UseFooterProps): UseFooter => {
 
     onDoneArchiveTask(result => {
       if (result) {
-        store.commit(MutationType.ArchiveTask, result.data.archiveTask);
+        store.dispatch(ActionType.ArchiveTask, result.data.archiveTask);
       }
     });
   };

@@ -61,7 +61,7 @@ export const tasksMutations: TasksMutationsType = {
         active: false
       }
     })
-   
+
     state.tasks = formatTasks(tasks)
   },
   [MutationType.PauseTask](state: State, taskId: Task['id']) {

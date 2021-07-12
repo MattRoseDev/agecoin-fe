@@ -2,8 +2,8 @@ import { Ref } from "vue";
 import { useMutation } from "@vue/apollo-composable";
 import { DELETE_TASK } from "@/graphql/task";
 import { useStore } from "@/store";
-import { MutationType } from "@/@enums/mutations";
 import router from "@/router";
+import { ActionType } from "@/@enums/actions";
 
 type UseDeleteTask = {
   deleteTask: () => void;
@@ -20,7 +20,7 @@ export default (taskId: string): UseDeleteTask => {
     });
 
     onDone(result => {
-      store.commit(MutationType.DeleteTask, result.data.deleteTask.id);
+      store.dispatch(ActionType.DeleteTask, result.data.deleteTask.id);
       router.push("/dashboard");
     });
   };
