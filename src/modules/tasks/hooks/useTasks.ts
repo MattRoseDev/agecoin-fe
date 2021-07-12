@@ -12,7 +12,9 @@ export default (): UseTasks => {
   if (store.getters.isTasksDataFetched) {
     return { loading: ref(false) };
   } else {
-    const { onResult, loading } = useQuery(GET_TASKS);
+    const { onResult, loading, stop } = useQuery(GET_TASKS, {
+      timezoneOffset: new Date().getTimezoneOffset()
+    });
 
     onResult(result => {
       if (result.data) {
@@ -20,6 +22,7 @@ export default (): UseTasks => {
           data: { getTasks }
         } = result;
         store.commit(MutationType.SetTasks, getTasks);
+        stop();
       }
     });
     return { loading };

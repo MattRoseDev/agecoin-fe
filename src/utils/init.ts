@@ -9,11 +9,12 @@ import { ActionType } from "@/@enums/actions";
 
 export const initApp: InitApp = () => {
   if (isAuthenticated()) {
-    const { onResult, onError } = useQuery(GET_USER_INFO);
+    const { onResult, onError, stop } = useQuery(GET_USER_INFO);
 
     const store = useStore();
     onResult(result => {
       store.commit(MutationType.SetUser, result?.data?.getUserInfo);
+      stop();
     });
 
     if (store.state.theme === "light") {

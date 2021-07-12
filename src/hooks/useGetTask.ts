@@ -20,7 +20,7 @@ export default (taskId: string): UseGetTask => {
   if (taskInfo) {
     return { loading: ref(false), task: ref(taskInfo) };
   } else {
-    const { loading, onResult } = useQuery(GET_TASK, {
+    const { loading, onResult, stop } = useQuery(GET_TASK, {
       taskId
     });
 
@@ -31,6 +31,7 @@ export default (taskId: string): UseGetTask => {
         } = result;
 				store.commit(MutationType.AppendNewTask, getTask)
         task.value = getTask;
+        stop()
       }
     });
 

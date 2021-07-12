@@ -52,6 +52,7 @@ export const tasksMutations: TasksMutationsType = {
       if(task.id === taskId) {
         return {
           ...task,
+          status: 1,
           active: true
         }
       }
