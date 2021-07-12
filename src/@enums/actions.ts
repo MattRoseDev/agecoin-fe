@@ -1,4 +1,5 @@
 export enum ActionType {
   Login = "LOGIN",
-  Logout = "LOGOUT"
+  Logout = "LOGOUT",
+  HandleDailyCoins = "HANDLE_DAILY_COINS"
 }
