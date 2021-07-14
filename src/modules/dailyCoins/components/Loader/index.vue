@@ -4,7 +4,7 @@
   >
     <div class="loading">
       <svg
-        class="animate-spin h-10 w-10 text-white"
+        class="animate-spin h-10 w-10 dark:text-white text-gray-400"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
