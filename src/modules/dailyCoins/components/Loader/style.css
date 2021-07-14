@@ -1,0 +1,4 @@
+.loading {
+  @apply w-full h-full absolute flex items-center justify-center;
+  background-color: inherit;
+}

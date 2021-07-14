@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex items-center justify-between p-3 lg:p-4 border-t dark:border-gray-600 border-dashed"
+    class="w-full flex items-center justify-between pt-3 px-3 lg:px-4 lg:pt-4 border-t dark:border-gray-600 border-dashed"
   >
     <p class="font-bold dark:text-white">Delete your Task?</p>
     <div class="flex text-xs">
