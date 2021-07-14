@@ -62,7 +62,7 @@
 <script lang="ts">
 import { useField } from "vee-validate";
 import { defineComponent, ref } from "vue";
-import { MINUTES, HOURS } from "@/constants";
+import { MINUTES, HOURS, MINUTE } from "@/constants";
 import { convertSecToMin } from "@/utils/formats";
 
 export default defineComponent({
@@ -93,15 +93,15 @@ export default defineComponent({
     const selectedMinute = ref(0);
 
     const handleSelectBox = (coins: number) => {
-      selectedHour.value = Math.floor(coins / 60);
-      selectedMinute.value = coins % 60;
+      selectedHour.value = Math.floor(coins / MINUTE);
+      selectedMinute.value = coins % MINUTE;
     };
     handleSelectBox(formatValue(props.value));
 
     const calculateCoins = () => {
       const hours = selectedHour.value;
       const minutes = selectedMinute.value;
-      defaultCoins.value = hours * 60 + minutes;
+      defaultCoins.value = hours * MINUTE + minutes;
     };
 
     return {

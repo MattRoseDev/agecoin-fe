@@ -94,7 +94,10 @@ export const tasksMutations: TasksMutationsType = {
   [MutationType.UpdateTask](state: State, task: Task) {
     const tasks = state.tasks.map(t => {
       if(t.id === task.id) {
-        return task
+        return {
+          ...t,
+          ...task,
+        } 
       }
       return t
     })
