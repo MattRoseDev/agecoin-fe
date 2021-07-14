@@ -1,7 +1,6 @@
 import { Ref } from "vue";
 
-export type GetDailyCoins = () => Ref<number>;
-export type RefreshDailyCoins= () => void;
+export type RefreshDailyCoins = () => void;
 
 export type GetNowTime = () => number;
 

@@ -1,6 +1,6 @@
-export const AGE_COIN_DURATION = 1000 * 60;
-export const AGE_COIN = 1000 * 60;
-export const COINS_OF_DAY = 24 * 60;
+export const MINUTE = 60;
+export const AGE_COIN_DURATION = 1000 * MINUTE;
+export const AGE_COIN = 1000 * MINUTE;
 
 export const MINUTES = [
   {
