@@ -1,6 +1,7 @@
 import { AGE_COIN_DURATION, COINS_OF_DAY } from "@/constants";
 import moment from "moment";
 import { ref } from "vue";
+import { useStore } from "@/store";
 import {
   GetDailyCoins,
   GetEndDay,
@@ -8,9 +9,11 @@ import {
   GetRemainingCoins,
   GetSpentCoins,
   GetStatus,
-  GetTotalCoins
+  GetTotalCoins,
+  RefreshDailyCoins
 } from "./@types/coins";
 import { ageCoinFormat } from "./formats";
+import { MutationType } from "@/@enums/mutations";
 
 const getSeconds = () => new Date().getSeconds();
 
@@ -26,6 +29,38 @@ export const getDailyCoins: GetDailyCoins = () => {
   }, (60 - getSeconds()) * 1000);
 
   return dailyCoins;
+};
+
+export const refreshDailyCoins: RefreshDailyCoins = () => {
+  const store = useStore();
+  const refreshCoins = () => {
+    const { dailyCoins, activeTask } = store.state;
+    if (dailyCoins) {
+      if (activeTask && activeTask.coins) {
+        store.commit(MutationType.SetDailyCoins, {
+          remainingCoins: dailyCoins?.remainingCoins - 60,
+          wastedCoins: dailyCoins?.wastedCoins,
+          savedCoins: dailyCoins?.savedCoins + 60
+        });
+        store.commit(MutationType.UpdateTask, {
+          activeTask,
+          coins: activeTask?.coins + 60
+        });
+      } else {
+        store.commit(MutationType.SetDailyCoins, {
+          remainingCoins: dailyCoins?.remainingCoins - 60,
+          wastedCoins: dailyCoins?.wastedCoins + 60,
+          savedCoins: dailyCoins?.savedCoins
+        });
+      }
+    }
+  };
+  setTimeout(() => {
+    refreshCoins();
+    setInterval(() => {
+      refreshCoins();
+    }, AGE_COIN_DURATION);
+  }, (60 - getSeconds()) * 1000);
 };
 
 const getEndDay: GetEndDay = (birthday, maxAge) => {

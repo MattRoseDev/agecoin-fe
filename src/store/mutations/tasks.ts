@@ -12,6 +12,7 @@ export type TasksMutationsType = {
   [MutationType.PauseTask](state: State, taskId: Task['id']): void;
   [MutationType.FinishTask](state: State, task: Task): void;
   [MutationType.ArchiveTask](state: State, task: Task): void;
+  [MutationType.UpdateTask](state: State, task: Task): void;
 }
 
 export const tasksMutations: TasksMutationsType = {
@@ -87,6 +88,16 @@ export const tasksMutations: TasksMutationsType = {
   },
   [MutationType.ArchiveTask](state: State, task: Task) {
     const tasks = state.tasks.filter(t => t.id !== task.id)
+
+    state.tasks = formatTasks(tasks)
+  },
+  [MutationType.UpdateTask](state: State, task: Task) {
+    const tasks = state.tasks.map(t => {
+      if(t.id === task.id) {
+        return task
+      }
+      return t
+    })
 
     state.tasks = formatTasks(tasks)
   },
