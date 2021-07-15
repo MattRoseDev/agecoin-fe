@@ -1,6 +1,9 @@
 <template>
   <Form @submit="login" :validation-schema="schema">
-    <div v-if="errorMessage.length > 0" class="rounded-md bg-red-50 p-2.5 mb-3">
+    <div
+      v-if="errorMessage.length > 0"
+      class="rounded-md bg-red-50 dark:bg-red-500 dark:bg-opacity-20 p-2.5 mb-3"
+    >
       <div class="flex">
         <div class="flex-shrink-0">
           <svg
