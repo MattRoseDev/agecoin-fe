@@ -13,6 +13,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.18",
     "@heroicons/vue": "^1.0.1",
+    "@popperjs/core": "^2.9.2",
     "@vue/apollo-composable": "^4.0.0-alpha.12",
     "@vue/composition-api": "^1.0.0-rc.8",
     "apollo-link-ws": "^1.0.20",
@@ -22,6 +23,7 @@
     "moment": "^2.29.1",
     "register-service-worker": "^1.7.1",
     "subscriptions-transport-ws": "^0.9.18",
+    "v-calendar": "^3.0.0-alpha.5",
     "vee-validate": "^4.4.2",
     "vue": "^3.0.0",
     "vue-i18n": "^9.1.0",
