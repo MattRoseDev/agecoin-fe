@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 import Sidebar from "@/modules/sidebar/index.vue";
 import { useStore } from "@/store";
