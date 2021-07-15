@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 import Avatar from "@/components/Avatar/index.vue";
 import Navigation from "./components/Navigation/index.vue";

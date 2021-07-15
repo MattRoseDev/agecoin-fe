@@ -24,7 +24,7 @@
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 import useSidebar from "./../../hooks/useSidebar";
 
