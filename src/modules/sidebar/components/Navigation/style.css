@@ -1,9 +1,10 @@
 .active {
-  @apply bg-blue-50 dark:bg-gray-500 text-blue-500 dark:text-blue-100;
+  @apply bg-blue-50 dark:bg-blue-500 dark:bg-opacity-20 text-blue-500;
 }
 
 .inactive {
-  @apply text-gray-500 dark:text-gray-50 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-gray-500;
+  @apply text-gray-500 dark:text-gray-50;
+  @apply hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500 dark:hover:bg-opacity-20;
 }
 
 .nav-item {
@@ -11,7 +12,7 @@
 }
 
 .active-icon {
-  @apply text-blue-500 dark:text-blue-100;
+  @apply text-blue-500;
 }
 
 .inactive-icon {
