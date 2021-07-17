@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { useField } from "vee-validate";
-import { defineComponent } from "vue";
+import { defineComponent, watch } from "vue";
 import type { InputType } from './@types'
 
 export default defineComponent({
@@ -38,7 +38,13 @@ export default defineComponent({
       handleBlur,
       handleChange,
       meta,
-    } = useField(props.name, undefined);
+    } = useField(props.name, undefined, {
+      initialValue: props.value
+    });
+
+    watch(props, currentValue => {
+      handleChange(currentValue.value)
+    })
 
     return {
       handleChange,
@@ -54,6 +60,10 @@ export default defineComponent({
       required: true
     },
     placeholder: {
+      type: String,
+      required: false
+    },
+    value: {
       type: String,
       required: false
     },
