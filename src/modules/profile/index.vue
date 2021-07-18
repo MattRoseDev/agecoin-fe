@@ -4,14 +4,14 @@
       <Avatar class="h-14 w-14" />
       <div class="flex-grow">
         <h1 class="text-xl font-bold text-gray-900 dark:text-white">
-          {{ store.state.account.user?.fullname }}
+          {{ store.getters.getUserFullname }}
         </h1>
         <p class="text-sm font-medium text-gray-500 dark:text-gray-300">
-          @{{ store.state.account.user?.username }}
+          @{{ store.getters.getUserUsername }}
         </p>
       </div>
       <div class="h-full self-stretch pt-1.5">
-        <router-link to="/setting"
+        <router-link to="/settings"
           ><CogIcon class="h-6 w-6 text-gray-500"
         /></router-link>
       </div>
