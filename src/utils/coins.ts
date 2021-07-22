@@ -13,6 +13,7 @@ import {
 } from "./@types/coins";
 import { ageCoinFormat } from "./formats";
 import { MutationType } from "@/@enums/mutations";
+import { ActionType } from "@/@enums/actions";
 
 const getSeconds = () => new Date().getSeconds();
 
@@ -27,7 +28,7 @@ export const refreshDailyCoins: RefreshDailyCoins = () => {
           wastedCoins: dailyCoins?.wastedCoins,
           savedCoins: dailyCoins?.savedCoins + MINUTE
         });
-        store.commit(MutationType.UpdateTask, {
+        store.dispatch(ActionType.UpdateTask, {
           ...activeTask,
           coins: activeTask?.coins + MINUTE
         });

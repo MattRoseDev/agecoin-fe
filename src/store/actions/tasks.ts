@@ -9,6 +9,7 @@ export type TasksActionsType = {
   [ActionType.DeleteTask](context: ActionAugments, taskId: Task['id']): void;
   [ActionType.FinishTask](context: ActionAugments, task: Task): void;
   [ActionType.ArchiveTask](context: ActionAugments, task: Task): void;
+  [ActionType.UpdateTask](context: ActionAugments, task: Task): void;
 };
 
 export const tasksActions: TasksActionsType = {
@@ -40,6 +41,14 @@ export const tasksActions: TasksActionsType = {
     if(task) {
       commit(MutationType.ArchiveTask, task)
       commit(MutationType.ClearActiveTaskById, task.id)
+    }
+  },
+  async [ActionType.UpdateTask]({ commit, state }:ActionAugments, task: Task) {
+    if(task) {
+      if(state.activeTask?.id === task.id) {
+        commit(MutationType.SetActiveTask, task)
+      }
+      commit(MutationType.UpdateTask, task)
     }
   },
 }

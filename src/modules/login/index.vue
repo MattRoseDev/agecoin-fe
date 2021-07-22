@@ -45,14 +45,14 @@
     </div>
     <Button
       type="submit"
-      class="text-white bg-blue-500 hover:bg-blue-600 my-3"
+      class="text-white bg-blue-500 hover:bg-blue-600 my-3 px-4 py-2"
       :loading="loading"
       >{{ t("default.login.button") }}</Button
     >
     <div class="flex justify-center">
       <Link
         to="/register"
-        class="inline-flex mb-1 py-1 px-2 font-medium text-blue-500 hover:bg-blue-100"
+        class="inline-flex mb-1 py-1 px-2 font-medium text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-500 dark:hover:bg-opacity-30"
         >Register Now</Link
       >
     </div>

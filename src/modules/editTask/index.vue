@@ -12,8 +12,8 @@
       <div class="flex">
         <Button
           type="submit"
-          class=" bg-blue-500 text-white mt-2 shadow hover:shadow-none"
-          :disabled="false"
+          class=" bg-blue-500 text-white mt-2 shadow hover:shadow-none px-3 py-1.5"
+          :disabled="!isValid"
           :loading="loading || isSubmitting"
         >
           Edit Task
