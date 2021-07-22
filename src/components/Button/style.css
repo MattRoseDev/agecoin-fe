@@ -1,12 +1,14 @@
 button {
   @apply inline-flex items-center justify-center overflow-hidden;
-  @apply px-4 py-2 select-none relative;
+  @apply select-none relative;
   @apply rounded-md shadow-sm outline-none;
+  @apply duration-300;
   outline: none !important;
 }
 
 button.disabled {
-  @apply bg-gray-300 text-white cursor-not-allowed;
+  @apply bg-gray-300 dark:bg-gray-700 text-white cursor-not-allowed;
+  @apply duration-300;
 }
 
 button.pill {
