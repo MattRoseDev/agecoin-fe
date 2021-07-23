@@ -23,7 +23,7 @@ export const tasksMutations: TasksMutationsType = {
   [MutationType.AppendNewTask](state: State, task: Task) {
     if(state.tasks.length) {
       if(!state.tasks.find(t => t.id == task.id)) {
-        state.tasks = [task, ...state.tasks]
+        state.tasks = formatTasks([task, ...state.tasks])
       }
     } else {
       state.tasks = [task]
@@ -36,7 +36,7 @@ export const tasksMutations: TasksMutationsType = {
       }
       return t 
     })
-    state.tasks = tasks
+    state.tasks = formatTasks(tasks)
    },
   [MutationType.DeleteTask](state: State, taskId: Task['id']) {
     const tasks = state.tasks.filter(t => {
@@ -45,7 +45,7 @@ export const tasksMutations: TasksMutationsType = {
       }
       return t
     })
-    state.tasks = tasks
+    state.tasks = formatTasks(tasks)
   },
   [MutationType.StartTask](state: State, taskId: Task['id']) {
     state.tasks = deactiveAllTasks(state.tasks)
