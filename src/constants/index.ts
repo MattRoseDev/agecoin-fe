@@ -1,7 +1,7 @@
 // TODO: fix these numbers
-export const MINUTE = 60;
-export const AGE_COIN_DURATION = 1000 * MINUTE;
-export const AGE_COIN = 1000 * MINUTE;
+export const SECOND_OF_MINUTE = 60;
+export const AGE_COIN_DURATION = 1000 * SECOND_OF_MINUTE;
+export const AGE_COIN = 1000 * SECOND_OF_MINUTE;
 
 export const MINUTES = [
   {
