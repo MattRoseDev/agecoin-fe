@@ -8,21 +8,24 @@ import { refreshDailyCoins } from "@/utils/coins";
 
 export default (): UseDailyCoins => {
   const store = useStore();
-  const { onResult, stop } = useQuery(GET_DAILY_COINS, {
-    timezoneOffset: new Date().getTimezoneOffset()
-  });
 
-  onResult(result => {
-    if (result.data) {
-      const {
-        data: { getDailyCoins }
-      } = result;
-      store.dispatch(ActionType.HandleDailyCoins, getDailyCoins);
-      stop();
-    }
-  });
+  if (!store.getters.isDailyCoinsDataFetched) {
+    const { onResult, stop } = useQuery(GET_DAILY_COINS, {
+      timezoneOffset: new Date().getTimezoneOffset()
+    });
 
-  refreshDailyCoins();
+    onResult(result => {
+      if (result.data) {
+        const {
+          data: { getDailyCoins }
+        } = result;
+        store.dispatch(ActionType.HandleDailyCoins, getDailyCoins);
+        stop();
+      }
+    });
+
+    refreshDailyCoins();
+  }
 
   return { store, numberFormat };
 };

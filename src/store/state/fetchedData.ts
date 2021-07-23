@@ -1,5 +1,6 @@
 import { FetchedData } from "@/@types/fetchedData";
 
 export const fetchedData: FetchedData = {
-  tasks: false
+  tasks: false,
+  dailyCoins: false
 };
