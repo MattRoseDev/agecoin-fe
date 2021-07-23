@@ -9,5 +9,6 @@ export type DailyCoinsMutationsType = {
 export const dailyCoinsMutations: DailyCoinsMutationsType = {
   [MutationType.SetDailyCoins](state: State, dailyCoins: DailyCoins) {
     state.dailyCoins = dailyCoins
+    state.fetchedData.dailyCoins = true
   },
 };
