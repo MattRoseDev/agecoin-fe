@@ -8,20 +8,15 @@ import router from "@/router";
 import { ActionType } from "@/@enums/actions";
 
 export const initApp: InitApp = () => {
+  const store = useStore();
+
   if (isAuthenticated()) {
     const { onResult, onError, stop } = useQuery(GET_USER_INFO);
 
-    const store = useStore();
     onResult(result => {
       store.commit(MutationType.SetUser, result?.data?.getUserInfo);
       stop();
     });
-
-    if (store.state.theme === "light") {
-      document.querySelector("html")?.classList.remove("dark");
-    } else {
-      document.querySelector("html")?.classList.add("dark");
-    }
 
     // TODO: use refresh token
     onError(error => {
@@ -30,5 +25,10 @@ export const initApp: InitApp = () => {
         router.push("login");
       }
     });
+  }
+  if (store.state.theme === "light") {
+    document.querySelector("html")?.classList.remove("dark");
+  } else {
+    document.querySelector("html")?.classList.add("dark");
   }
 };
