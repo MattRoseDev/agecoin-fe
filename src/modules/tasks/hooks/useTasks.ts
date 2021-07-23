@@ -2,9 +2,8 @@ import { useQuery } from "@vue/apollo-composable";
 import { GET_TASKS } from "@/graphql/task";
 import { useStore } from "@/store";
 import { MutationType } from "@/@enums/mutations";
-import { ref, Ref } from "vue";
-
-type UseTasks = { loading: Ref<boolean> };
+import { ref } from "vue";
+import { UseTasks } from "../@types";
 
 export default (): UseTasks => {
   const store = useStore();
