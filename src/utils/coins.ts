@@ -1,4 +1,4 @@
-import { AGE_COIN_DURATION, MINUTE } from "@/constants";
+import { AGE_COIN_DURATION, SECOND_OF_MINUTE } from "@/constants";
 import moment from "moment";
 import { ref } from "vue";
 import { useStore } from "@/store";
@@ -22,20 +22,20 @@ export const refreshDailyCoins: RefreshDailyCoins = () => {
   const refreshCoins = () => {
     const { dailyCoins, activeTask } = store.state;
     if (dailyCoins) {
-      if (activeTask && activeTask.coins) {
+      if (activeTask && activeTask.coins !== undefined) {
         store.commit(MutationType.SetDailyCoins, {
-          remainingCoins: dailyCoins?.remainingCoins - MINUTE,
+          remainingCoins: dailyCoins?.remainingCoins - SECOND_OF_MINUTE,
           wastedCoins: dailyCoins?.wastedCoins,
-          savedCoins: dailyCoins?.savedCoins + MINUTE
+          savedCoins: dailyCoins?.savedCoins + SECOND_OF_MINUTE
         });
         store.dispatch(ActionType.UpdateTask, {
           ...activeTask,
-          coins: activeTask?.coins + MINUTE
+          coins: activeTask?.coins + SECOND_OF_MINUTE
         });
       } else {
         store.commit(MutationType.SetDailyCoins, {
-          remainingCoins: dailyCoins?.remainingCoins - MINUTE,
-          wastedCoins: dailyCoins?.wastedCoins + MINUTE,
+          remainingCoins: dailyCoins?.remainingCoins - SECOND_OF_MINUTE,
+          wastedCoins: dailyCoins?.wastedCoins + SECOND_OF_MINUTE,
           savedCoins: dailyCoins?.savedCoins
         });
       }
@@ -46,7 +46,7 @@ export const refreshDailyCoins: RefreshDailyCoins = () => {
     setInterval(() => {
       refreshCoins();
     }, AGE_COIN_DURATION);
-  }, (MINUTE - getSeconds()) * 1000);
+  }, (SECOND_OF_MINUTE - getSeconds()) * 1000);
 };
 
 const getEndDay: GetEndDay = (birthday, maxAge) => {
@@ -76,7 +76,7 @@ export const getSpentCoins: GetSpentCoins = birthday => {
     setInterval(() => {
       spentCoins.value = calculateSpentCoins();
     }, AGE_COIN_DURATION);
-  }, (MINUTE - getSeconds()) * 1000);
+  }, (SECOND_OF_MINUTE - getSeconds()) * 1000);
 
   return spentCoins;
 };
@@ -95,7 +95,7 @@ export const getRemainingCoins: GetRemainingCoins = (birthday, maxAge) => {
     setInterval(() => {
       remainingCoins.value = calculateRemainingCoins();
     }, AGE_COIN_DURATION);
-  }, (MINUTE - getSeconds()) * 1000);
+  }, (SECOND_OF_MINUTE - getSeconds()) * 1000);
 
   return remainingCoins;
 };

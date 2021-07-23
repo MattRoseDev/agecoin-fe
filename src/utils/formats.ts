@@ -1,4 +1,4 @@
-import { AGE_COIN, MINUTE } from "@/constants";
+import { AGE_COIN, SECOND_OF_MINUTE } from "@/constants";
 import moment from "moment";
 import {
   AgeCoinFormat,
@@ -29,7 +29,7 @@ export const dateFormat: DateFormat = date => {
 export const convertSecToMin: ConvertSecToMin = seconds => {
   if (!seconds) return 0;
 
-  if (seconds < MINUTE) return 1;
+  if (seconds < SECOND_OF_MINUTE) return 1;
 
-  return Math.round(seconds / MINUTE);
+  return Math.round(seconds / SECOND_OF_MINUTE);
 };
